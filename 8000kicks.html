@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8000Kicks - The Best Waterproof Hemp Sneakers</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            background-color: #f0f2f5;
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        /* Khung chứa thông minh: Tự động đổi bố cục tùy theo màn hình */
+        .landing-container {
+            background: #ffffff;
+            max-width: 1000px; /* Mở rộng không gian trên máy tính */
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: row; /* Chia 2 cột trên máy tính */
+            border: 1px solid #e1e4e8;
+        }
+        /* Cột bên trái: Chứa ảnh cố định */
+        .left-col {
+            flex: 1.1;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        .product-image {
+            width: 100%;
+            height: 100%;
+            max-height: 550px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        /* Cột bên phải: Chứa chữ và nút bấm */
+        .right-col {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #ffffff;
+        }
+        .promo-badge {
+            background: #ff4747;
+            color: white;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 20px;
+            align-self: flex-start;
+            letter-spacing: 0.5px;
+        }
+        .product-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .scroll-content {
+            max-height: 320px;
+            overflow-y: auto; /* Tạo cuộn mượt cho nội dung dài trên máy tính */
+            padding-right: 10px;
+            margin-bottom: 24px;
+        }
+        /* Thêm thanh cuộn đẹp */
+        .scroll-content::-webkit-scrollbar {
+            width: 4px;
+        }
+        .scroll-content::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 10px;
+        }
+        .product-desc {
+            font-size: 14.5px;
+            color: #444;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .action-button {
+            display: block;
+            background: linear-gradient(135deg, #ff4747 0%, #e60000 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(230,0,0,0.25);
+            transition: all 0.2s ease;
+        }
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230,0,0,0.35);
+        }
+        .brand-footer {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #aaa;
+            text-align: center;
+            border-top: 1px solid #f0f2f5;
+            padding-top: 15px;
+        }
+        /* 📱 ĐỊNH DẠNG TỰ ĐỘNG CHUYỂN ĐỔI KHI XEM TRÊN ĐIỆN THOẠI */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .landing-container {
+                flex-direction: column; /* Chuyển thành 1 cột dọc */
+                border-radius: 16px;
+            }
+            .left-col {
+                padding: 15px;
+            }
+            .product-image {
+                max-height: 280px;
+            }
+            .right-col {
+                padding: 24px;
+            }
+            .product-title {
+                font-size: 20px;
+            }
+            .scroll-content {
+                max-height: none; /* Điện thoại thì đọc tuột xuống dưới, không cần ô cuộn */
+                overflow-y: visible;
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="landing-container">
+        
+        <div class="left-col">
+            <img class="product-image" src="https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg" alt="8000Kicks Sneakers">
+            <img class="product-image" src="https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg" alt="8000Kicks Sneakers">
+            <img class="product-image" src="https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg" alt="8000Kicks Sneakers"> 
+            <img class="product-image" src="https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg" alt="8000Kicks Sneakers">
+        </div>
+        
+        <div class="right-col">
+            <div>
+                <span class="promo-badge">🔥 EXCLUSIVE OFFERS ON X (TWITTER)</span>
+                <h1 class="product-title">8000Kicks: THE BEST SNEAKERS FOR RAINY DAYS</h1>
+                
+                <div class="scroll-content">
+                    <p class="product-desc">
+                        <strong>The Disruptor: Hemp vs. The World:</strong> Most waterproof footwear relies on heavy plastics or synthetic membranes that trap heat and eventually crack. 8000Kicks took a radically different path by utilizing industrial hemp.<br><br>
+                        <strong>Real Engineering Marvel:</strong> How they’ve achieved a 100% waterproof rating. By integrating a proprietary bio-based membrane, these sneakers don’t just repel a light drizzle; they are built to withstand deep puddles and heavy rain.<br><br>
+                        <strong>Performance Meets Aesthetics:</strong> In the world of Blogging and Content Marketing, "authenticity" is the currency that matters most. Testing these sneakers reveals a level of comfort that rivals traditional knit runners.<br><br>
+                        <strong>Why This Matters for the Modern Traveler:</strong> For the digital nomad or the frequent traveler, luggage space is at a premium. Carrying a separate pair of rain boots is inefficient. The 8000Kicks waterproof sneakers serve as a quick-dry solution.<br><br>
+                        <strong>Sustainability Standpoint:</strong> The brand is transparent. They use recycled rubber outsoles and bloom foam (algae-based) insoles, which helps clean polluted water sources. This isn’t just "greenwashing"; it’s a vertically integrated solution.<br><br>
+                        If you are looking for a footwear investment that aligns with a high-performance lifestyle while respecting the planet, this is the gold standard. These aren’t just shoes; they are a statement of intent.<br><br>
+                        Stop letting the weather dictate your plans. Experience the fusion of sustainable hemp technology and world-class waterproofing. Join the thousands of explorers who have already made the switch.
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <a class="action-button" href="https://8000kicks.sjv.io/donabicoglobalmedia" target="_blank">👉 Get your pair of 8000Kicks here and save on your first order! ➜</a>
+                
+                <div class="brand-footer">
+                    &copy; Donabico Global Media - Online Marketing | Affiliate Marketing
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
