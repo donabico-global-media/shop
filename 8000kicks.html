@@ -2,58 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">8000Kicks Official Node</title>
+    <title id="meta-title">Verified Node</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Times New Roman chuyên nghiệp */
-        body { font-family: 'Times New Roman', Times, serif; background-color: #020617; color: white; }
-        .cyber-card { background: rgba(15, 23, 42, 0.8); border: 1px solid #334155; }
+        body { font-family: 'Times New Roman', serif; background-color: #020617; color: white; }
+        .cyber-card { border: 1px solid #334155; background: rgba(15, 23, 42, 0.8); }
     </style>
 </head>
 <body class="p-4 flex flex-col items-center">
 
     <script>
-        const CONFIG = {
-            rawAffiliateLink: "https://8000kicks.sjv.io/donabico_global_media", 
-            images: [
-                "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
-                "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
-                "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
-                "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
-            ]
+        // THƯ VIỆN 48 TEMPLATE (JSON) - DÙNG CHO CẢ ĐẾ CHẾ AFFILIATE
+        const MASTER_LIBRARY = {
+            "8000Kicks": { color: "emerald-500", desc: "Sustainable Hemp Performance Footwear Node.", link: "https://8000kicks.sjv.io/donabico_global_media" },
+            "NikePro": { color: "orange-500", desc: "Professional Athletic Performance Engine.", link: "#" },
+            "CryptoBot": { color: "purple-500", desc: "Automated Algorithmic Asset Management Node.", link: "#" },
+            "SaaS-Cloud": { color: "blue-500", desc: "High-Velocity Cloud Integration Architecture.", link: "#" }
+            // Admin thêm tiếp 44 brand vào đây...
         };
-        // Logic tự chọn màu sắc theo thương hiệu
-        const colors = ['from-emerald-500', 'from-blue-500', 'from-purple-500', 'from-amber-500'];
-        const selectedColor = colors[Math.floor(Math.random() * colors.length)];
+
+        const currentBrand = "8000Kicks"; // <--- CHỈ CẦN ĐỔI TÊN Ở ĐÂY
+        const data = MASTER_LIBRARY[currentBrand];
     </script>
 
-    <main class="max-w-3xl w-full space-y-8 mt-10">
+    <main class="max-w-4xl w-full space-y-8 mt-10">
         <header class="text-center space-y-4">
-            <h1 id="title" class="text-4xl font-bold uppercase">8000KICKS OFFICIAL NODE</h1>
-            <p id="seo-desc" class="text-xl text-slate-300">Premium Sustainable Hemp Sneakers - Engineered for Performance.</p>
+            <h1 id="title" class="text-6xl font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r">Loading...</h1>
+            <p id="desc" class="text-2xl italic text-slate-400"></p>
         </header>
 
-        <section id="gallery" class="grid grid-cols-2 gap-4"></section>
+        <section id="gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4"></section>
 
-        <button id="cta-btn" onclick="executeRedirect()" class="w-full text-2xl font-bold py-6 rounded-lg transition hover:opacity-90 uppercase">
+        <button onclick="window.location.href=data.link" id="cta-btn" 
+                class="w-full text-3xl font-black py-8 rounded-2xl transition hover:scale-[1.02] uppercase tracking-widest">
             INITIALIZE VERIFICATION ROUTE
         </button>
+
+        <footer class="text-slate-600 text-center text-xs mt-10">
+            [FTC Disclosure: Autonomous technical bridge. Commissions may apply.]
+        </footer>
     </main>
 
     <script>
-        // SEO & UI Injection
-        document.getElementById('cta-btn').classList.add('bg-gradient-to-r', selectedColor, 'to-cyan-500');
-        document.getElementById('title').classList.add('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', selectedColor, 'to-cyan-400');
-        
-        const gallery = document.getElementById('gallery');
-        CONFIG.images.forEach(url => {
-            const img = document.createElement('img');
-            img.src = url; img.className = "w-full h-48 object-cover rounded-md border border-slate-700";
-            gallery.appendChild(img);
-        });
-
-        function executeRedirect() { window.location.href = CONFIG.rawAffiliateLink; }
+        // TỰ ĐỘNG CẬP NHẬT GIAO DIỆN & SEO
+        document.getElementById('meta-title').innerText = currentBrand + " Official Node";
+        document.getElementById('title').innerText = currentBrand + " Official Node";
+        document.getElementById('title').classList.add(`from-${data.color}`, "to-cyan-400");
+        document.getElementById('desc').innerText = data.desc;
+        document.getElementById('cta-btn').classList.add(`bg-gradient-to-r`, `from-${data.color}`, "to-cyan-500");
     </script>
 </body>
 </html>
