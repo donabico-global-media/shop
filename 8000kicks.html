@@ -1,54 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>8000Kicks Official Node</title>
+    <title id="meta-title">Verified Node</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Times New Roman', serif; background-color: #020617; color: white; }
-        .cyber-card { background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.5)); border: 1px solid #334155; }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); border: 1px solid #334155; }
     </style>
 </head>
 <body class="p-6 flex flex-col items-center">
 
-    <script>
-        const CONFIG = {
-            link: "https://8000kicks.sjv.io/donabico_global_media", 
-            images: [
-                "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
-                "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
-                "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
-                "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
-            ]
-        };
-    </script>
+    <section class="border-2 border-dashed border-blue-500 w-full max-w-4xl p-6 rounded-xl mb-10 bg-[#0f172a]">
+        <h2 class="text-blue-400 font-bold mb-4 uppercase">📥 CẤU HÌNH DỮ LIỆU TỰ ĐỘNG</h2>
+        <script>
+            // 48 TEMPLATE DỮ LIỆU ĐƯỢC NẠP SẴN (Thêm đủ 48 vào đây)
+            const TEMPLATE_LIBRARY = {
+                "8000Kicks": { color: "emerald", desc: "Sustainable Hemp Performance Node.", link: "https://8000kicks.sjv.io/donabico_global_media", img: ["https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg", "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg"] },
+                "NikePro": { color: "orange", desc: "Elite Athletic Engineering Engine.", link: "#", img: ["https://via.placeholder.com/300"] },
+                "CryptoBot": { color: "purple", desc: "Algorithmic Asset Management Node.", link: "#", img: ["https://via.placeholder.com/300"] }
+            };
 
-    <main class="max-w-4xl w-full space-y-8">
-        <header class="text-center space-y-2">
-            <h1 class="text-6xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">8000KICKS OFFICIAL NODE</h1>
-            <p class="text-2xl italic text-slate-400">Sustainable Hemp Performance Footwear Node.</p>
-        </header>
+            // CHỈ CẦN ĐỔI BRAND Ở ĐÂY, TRANG WEB SẼ TỰ "BIẾN HÌNH"
+            const currentBrand = "8000Kicks"; 
+            const data = TEMPLATE_LIBRARY[currentBrand];
+        </script>
+    </section>
 
+    <main class="max-w-4xl w-full space-y-8 text-center">
+        <h1 id="title" class="text-6xl font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r">Loading...</h1>
+        <p id="desc" class="text-2xl italic text-slate-400"></p>
+        
         <section id="gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4"></section>
 
-        <section class="grid grid-cols-2 gap-6 text-center">
-            <div class="cyber-card p-6 rounded-xl"><p class="text-sm text-slate-500 uppercase">Traffic</p><p class="text-3xl font-bold">5,214,892</p></div>
-            <div class="cyber-card p-6 rounded-xl"><p class="text-sm text-slate-500 uppercase">ROI Yield</p><p class="text-3xl font-bold text-cyan-400">+$31,842</p></div>
-        </section>
-
-        <button onclick="window.location.href=CONFIG.link" class="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-black py-8 rounded-2xl text-3xl uppercase tracking-widest hover:scale-[1.02] transition shadow-2xl">
+        <button onclick="window.location.href=data.link" id="cta-btn" 
+                class="w-full text-3xl font-black py-8 rounded-2xl uppercase tracking-widest transition hover:scale-[1.02] shadow-2xl">
             INITIALIZE VERIFICATION ROUTE
         </button>
-
-        <footer class="text-slate-600 text-center text-xs">[FTC Disclosure: Autonomous technical bridge. Commissions may apply.]</footer>
     </main>
 
     <script>
+        // ENGINE TỰ ĐỘNG THÍCH ỨNG
+        document.getElementById('meta-title').innerText = currentBrand + " Official Node";
+        document.getElementById('title').innerText = currentBrand + " Official Node";
+        document.getElementById('title').classList.add(`from-${data.color}-400`, "to-cyan-400");
+        document.getElementById('desc').innerText = data.desc;
+        document.getElementById('cta-btn').classList.add(`bg-gradient-to-r`, `from-${data.color}-500`, "to-cyan-500");
+
         const gallery = document.getElementById('gallery');
-        CONFIG.images.forEach(url => {
+        data.img.forEach(url => {
             const img = document.createElement('img');
-            img.src = url; img.className = "rounded-xl border border-slate-700 w-full h-48 object-cover shadow-lg";
+            img.src = url; img.className = "rounded-xl border border-slate-700 w-full h-48 object-cover";
             gallery.appendChild(img);
         });
     </script>
