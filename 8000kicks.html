@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8000Kicks Verified Node</title>
+    <style>
+        body { background-color: #020617; color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .container { max-width: 600px; width: 100%; text-align: center; }
+        .grid-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
+        .grid-gallery img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 1px solid #334155; }
+        .btn { display: block; width: 100%; padding: 15px; background: linear-gradient(to right, #10b981, #06b6d4); color: black; font-weight: bold; text-decoration: none; border-radius: 10px; text-align: center; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>8000Kicks Official Node</h1>
+        <div class="grid-gallery" id="gallery"></div>
+        <a href="https://8000kicks.sjv.io/donabico_global_media" class="btn">INITIALIZE VERIFICATION ROUTE</a>
+    </div>
+
+    <script>
+        const images = [
+            "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
+            "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
+            "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
+            "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
+        ];
+        const gallery = document.getElementById('gallery');
+        images.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            gallery.appendChild(img);
+        });
+    </script>
+</body>
+</html>
