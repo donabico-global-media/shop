@@ -27,7 +27,7 @@
         window.TARGET_CONFIG = {
             affiliate_link: "https://8000kicks.sjv.io/donabico_global_media",
             image_links: [
-               "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
+                "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
                 "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
                 "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
                 "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
@@ -143,13 +143,13 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center border-b border-slate-900 pb-8 text-[11px]">
-                <a href="#legal" onclick="window.triggerModal('terms')" class="hover:text-slate-300 underline">Terms & Conditions</a>
-                <a href="#legal" onclick="window.triggerModal('privacy')" class="hover:text-slate-300 underline">Privacy Charter</a>
-                <a href="#legal" onclick="window.triggerModal('cookie')" class="hover:text-slate-300 underline">Cookie Consent Matrix</a>
-                <a href="#legal" onclick="window.triggerModal('ftc')" class="hover:text-slate-300 underline">FTC Commercial Disclosure</a>
-                <a href="#legal" onclick="window.triggerModal('gdpr')" class="hover:text-slate-300 underline">UK/EU GDPR Data Statement</a>
-                <a href="#legal" onclick="window.triggerModal('ccpa')" class="hover:text-slate-300 underline">CCPA Privacy Rights (USA)</a>
-                <a href="#legal" onclick="window.triggerModal('spam')" class="hover:text-slate-300 underline">Anti-Spam Operational Compliance</a>
+                <a href="javascript:void(0);" onclick="window.triggerModal('terms')" class="hover:text-slate-300 underline">Terms & Conditions</a>
+                <a href="javascript:void(0);" onclick="window.triggerModal('privacy')" class="hover:text-slate-300 underline">Privacy Charter</a>
+                <a href="javascript:void(0);" onclick="window.triggerModal('cookie')" class="hover:text-slate-300 underline">Cookie Consent Matrix</a>
+                <a href="javascript:void(0);" onclick="window.triggerModal('ftc')" class="hover:text-slate-300 underline">FTC Commercial Disclosure</a>
+                <a href="javascript:void(0);" onclick="window.triggerModal('gdpr')" class="hover:text-slate-300 underline">UK/EU GDPR Data Statement</a>
+                <a href="javascript:void(0);" onclick="window.triggerModal('ccpa')" class="hover:text-slate-300 underline">CCPA Privacy Rights (USA)</a>
+                <a href="javascript:void(0);" onclick="window.triggerModal('spam')" class="hover:text-slate-300 underline">Anti-Spam Operational Compliance</a>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-[10px] text-center border-b border-slate-900 pb-8">
@@ -303,11 +303,10 @@
             });
 
             // =================================================================
-            // GIẢI PHÁP CHUYỂN HƯỚNG CHAMELEON NATIVE (FIX LỖI NHẢY TRANG & CHẶN POP-UP)
+            // GIẢI PHÁP TIÊM LINK TẮC KÈ HOA VÀ KHÓA CHẶT URL #
             // =================================================================
             document.querySelectorAll(".affiliate-gate-trigger").forEach(anchor => {
                 
-                // Hàm bơm link thực tế
                 const injectRealLink = function() {
                     if (/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) return;
                     
@@ -318,15 +317,23 @@
                     }
                 };
 
-                // Kích hoạt bơm link khi lướt chuột hoặc chạm màn hình
+                // Kích hoạt tiêm link Affiliate vào ngay khi lướt chuột/chạm tay (Trước khi click)
                 anchor.addEventListener("mouseenter", injectRealLink);
                 anchor.addEventListener("touchstart", injectRealLink, {passive: true});
 
-                // Xử lý sự kiện click để lưu log
-                anchor.addEventListener("click", function() {
+                // Chặn triệt để ký tự # nhảy lên URL trong trường hợp khách click quá nhanh
+                anchor.addEventListener("click", function(e) {
                     if (this.getAttribute("href") === "javascript:void(0);") {
-                        injectRealLink.call(this); // Fallback nếu chưa kịp inject
+                        e.preventDefault(); // CHẶN LỖI NHẢY TRANG / SINH DẤU #
+                        
+                        // Fallback tự mở cửa sổ mới nếu link chưa kịp tiêm
+                        if (!/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) {
+                            const newTab = window.open(window.TARGET_CONFIG.affiliate_link, '_blank', 'noopener,noreferrer');
+                            if(newTab) newTab.opener = null;
+                        }
                     }
+
+                    // Ghi nhận Log
                     let clickLog = parseInt(sessionStorage.getItem("local_clicks_logged") || "0") + 1;
                     sessionStorage.setItem("local_clicks_logged", clickLog);
                     document.getElementById("local-clicks").textContent = clickLog;
