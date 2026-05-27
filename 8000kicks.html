@@ -27,7 +27,7 @@
         window.TARGET_CONFIG = {
             affiliate_link: "https://8000kicks.sjv.io/donabico_global_media",
             image_links: [
-                "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
+               "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
                 "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
                 "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
                 "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
@@ -69,7 +69,7 @@
                 Access certified high-demand inventory. Fully compliant with active distribution regulations serving elite worldwide end-points.
             </p>
             <div class="pt-4">
-                <a href="#" class="affiliate-gate-trigger inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-amber-400 hover:bg-amber-300 rounded-lg shadow-xl transition-all duration-300 w-full sm:w-auto" id="ui-main-cta">
+                <a href="javascript:void(0);" class="affiliate-gate-trigger inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-amber-400 hover:bg-amber-300 rounded-lg shadow-xl transition-all duration-300 w-full sm:w-auto cursor-pointer" id="ui-main-cta">
                     CLAIM YOUR EXCLUSIVE OFFER NOW →
                 </a>
             </div>
@@ -96,7 +96,7 @@
                         <h4 class="text-lg font-bold text-white">Direct Access Route Secured</h4>
                         <p class="text-xs text-slate-500 font-mono">Encrypted tracking signatures appended to destination link headers.</p>
                     </div>
-                    <a href="#" class="affiliate-gate-trigger inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-black bg-white hover:bg-slate-200 rounded transition-all w-full sm:w-auto text-center shrink-0">
+                    <a href="javascript:void(0);" class="affiliate-gate-trigger inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-black bg-white hover:bg-slate-200 rounded transition-all w-full sm:w-auto text-center shrink-0 cursor-pointer">
                         PROCEED TO CHECKOUT
                     </a>
                 </div>
@@ -128,7 +128,7 @@
                 </div>
 
                 <div class="pt-2">
-                    <a href="#" class="affiliate-gate-trigger block w-full text-center py-3 text-white font-bold rounded-lg text-sm transition-colors bg-slate-800 hover:bg-slate-700" id="ui-side-cta">
+                    <a href="javascript:void(0);" class="affiliate-gate-trigger block w-full text-center py-3 text-white font-bold rounded-lg text-sm transition-colors bg-slate-800 hover:bg-slate-700 cursor-pointer" id="ui-side-cta">
                         CLAIM CURRENT ALLOCATION
                     </a>
                 </div>
@@ -286,7 +286,7 @@
             adjustCTA(document.getElementById("timer-ms"), false);
             document.body.style.backgroundColor = activeTheme.bg;
 
-            // 1 & BỔ SUNG YÊU CẦU: ZOOM LIGHTBOX ẢNH
+            // 1. ZOOM LIGHTBOX ẢNH
             const gridContainer = document.getElementById("dynamic-image-injector");
             window.TARGET_CONFIG.image_links.forEach((url, idx) => {
                 const item = document.createElement("div");
@@ -295,7 +295,6 @@
                     <img src="${url}" alt="Official ${brandData.name} Visual Verification Asset ${idx + 1}" class="object-cover w-full h-full opacity-40 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy">
                     <span class="absolute bottom-2 left-2 text-[9px] font-mono bg-slate-950/80 px-2 py-0.5 rounded text-slate-400 border border-slate-850">NODE_0${idx+1}</span>
                 `;
-                // Kích hoạt Lightbox khi Click vào ảnh
                 item.addEventListener("click", () => {
                     document.getElementById("lightbox-img").src = url;
                     document.getElementById("image-lightbox").classList.remove("hidden");
@@ -304,29 +303,33 @@
             });
 
             // =================================================================
-            // GIẢI PHÁP CHUYỂN HƯỚNG NATIVE (FIX LỖI TRÌNH DUYỆT CHẶN POP-UP)
+            // GIẢI PHÁP CHUYỂN HƯỚNG CHAMELEON NATIVE (FIX LỖI NHẢY TRANG & CHẶN POP-UP)
             // =================================================================
             document.querySelectorAll(".affiliate-gate-trigger").forEach(anchor => {
-                // Set href tạm thời để đáp ứng chuẩn HTML, bot thấy link rác `#`
-                anchor.href = "#"; 
                 
-                anchor.addEventListener("click", function(e) {
-                    // Chặn Bot (Bot click sẽ bị bẻ gãy hành vi ngay lập tức)
-                    if (/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) {
-                        e.preventDefault();
-                        return false;
+                // Hàm bơm link thực tế
+                const injectRealLink = function() {
+                    if (/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) return;
+                    
+                    if (this.getAttribute("href") === "javascript:void(0);") {
+                        this.setAttribute("href", window.TARGET_CONFIG.affiliate_link);
+                        this.setAttribute("target", "_blank");
+                        this.setAttribute("rel", "noopener noreferrer");
                     }
+                };
 
-                    // Ghi nhận Log nội bộ
+                // Kích hoạt bơm link khi lướt chuột hoặc chạm màn hình
+                anchor.addEventListener("mouseenter", injectRealLink);
+                anchor.addEventListener("touchstart", injectRealLink, {passive: true});
+
+                // Xử lý sự kiện click để lưu log
+                anchor.addEventListener("click", function() {
+                    if (this.getAttribute("href") === "javascript:void(0);") {
+                        injectRealLink.call(this); // Fallback nếu chưa kịp inject
+                    }
                     let clickLog = parseInt(sessionStorage.getItem("local_clicks_logged") || "0") + 1;
                     sessionStorage.setItem("local_clicks_logged", clickLog);
                     document.getElementById("local-clicks").textContent = clickLog;
-
-                    // Gán link Affiliate vật lý trực tiếp vào thẻ <a> ngay khoảnh khắc người dùng click
-                    // Cố ý không dùng e.preventDefault() để cho phép trình duyệt tự mở tab một cách tự nhiên nhất
-                    this.href = window.TARGET_CONFIG.affiliate_link;
-                    this.target = "_blank";
-                    this.rel = "noopener noreferrer"; // Chặn rò rỉ vết nguồn từ GitHub sang trang đích
                 });
             });
 
