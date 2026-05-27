@@ -33,7 +33,7 @@
 
             // Nhập ít nhất 04 Link ảnh hoặc nhiều hơn (Tự động cập nhật ra giao diện)
             image_links: [
-                 "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
+                "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
                 "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
                 "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
                 "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
@@ -280,7 +280,7 @@
 
             const textGroup = copyRepository[brandData.matrix] || copyRepository["GENERIC"];
             
-            // EXECUTE DOM INJECTION PRIOR TO USER VISIBILITY (PREVENTS DYNAMIC FLICKERING)
+            // EXECUTE DOM INJECTION PRIOR TO USER VISIBILITY
             document.getElementById("dynamic-brand-name").textContent = brandData.name;
             document.getElementById("dynamic-brand-sector").textContent = activeTheme.sector;
             document.getElementById("dynamic-brand-ico").textContent = activeTheme.icon;
@@ -331,13 +331,15 @@
                 gridContainer.appendChild(item);
             });
 
-            // 5 & 7. BIGTECH ANTI-FLAG REFERRER SCRUBBER & POPUP BYPASS GATES
+            // =================================================================
+            // 5 & 7. FIX TRIỆT TIỂU LỖI CHUYỂN HƯỚNG BẰNG VIRTUAL ANCHOR DOM LAYER
+            // =================================================================
             document.querySelectorAll(".affiliate-gate-trigger").forEach(anchor => {
                 anchor.style.cursor = "pointer";
                 anchor.addEventListener("click", (e) => {
                     e.preventDefault();
                     
-                    // Instant Bot Shield Deflection
+                    // Instant Bot Shield Deflection (Chặn bot rải gậy)
                     if (/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) {
                         return false;
                     }
@@ -347,9 +349,15 @@
                     sessionStorage.setItem("local_clicks_logged", clickLog);
                     document.getElementById("local-clicks").textContent = clickLog;
 
-                    // Clean redirect mapping (Scrubs referrer trail completely)
-                    const cleanTab = window.open(window.TARGET_CONFIG.affiliate_link, '_blank', 'noopener,noreferrer');
-                    if (cleanTab) cleanTab.opener = null;
+                    // KHỞI TẠO LỚP THẺ MỎ NEO ẢO ĐỂ BẮT BUỘC TRÌNH DUYỆT CHUYỂN HƯỚNG KHÔNG BỊ BLOCK
+                    const virtualAnchor = document.createElement("a");
+                    virtualAnchor.href = window.TARGET_CONFIG.affiliate_link;
+                    virtualAnchor.target = "_blank";
+                    virtualAnchor.rel = "noopener noreferrer"; // Xóa dấu vết nguồn phân phối link với BigTech
+                    
+                    document.body.appendChild(virtualAnchor);
+                    virtualAnchor.click(); // Kích hoạt sự kiện click vật lý cưỡng chế trình duyệt mở tab
+                    document.body.removeChild(virtualAnchor); // Dọn dẹp DOM ngay lập tức
                 });
             });
 
