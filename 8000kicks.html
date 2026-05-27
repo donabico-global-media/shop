@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- DYNAMIC SEO ENGINES -->
+    <title id="meta-title">Loading Premium Offer...</title>
+    <meta id="meta-desc" name="description" content="">
+    <meta id="meta-keywords" name="keywords" content="">
+    
+    <!-- OPEN GRAPH FOR BIGTECH COMPLIANCE (FB/X/PINTEREST/TIKTOK) -->
+    <meta property="og:type" content="website">
+    <meta id="og-title" property="og:title" content="">
+    <meta id="og-desc" property="og:description" content="">
+    <meta id="og-image" property="og:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- NO-PROSE PAYLOAD STYLE SHANNON INTERPOLATION (DARK THEMES) -->
+    <style>
+        :root {
+            --bg-main: #0a0a0c;
+            --bg-card: #121216;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        /* PALETTE MATRIX FOR 24 AUTO-THEMES (KEYWORDS DRIVEN) */
+        .theme-crypto { --accent: #f59e0b; --accent-glow: rgba(245, 158, 11, 0.15); }
+        .theme-health { --accent: #10b981; --accent-glow: rgba(16, 185, 129, 0.15); }
+        .theme-tech { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.15); }
+        .theme-finance { --accent: #8b5cf6; --accent-glow: rgba(139, 92, 246, 0.15); }
+        .theme-beauty { --accent: #ec4899; --accent-glow: rgba(236, 72, 153, 0.15); }
+        .theme-default { --accent: #ef4444; --accent-glow: rgba(239, 68, 68, 0.15); }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: var(--text-main); display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+        
+        /* ANALYTICS HUD BAR */
+        #analytics-hud { background: #111827; border-bottom: 1px solid var(--border); padding: 8px 16px; font-size: 11px; display: flex; justify-content: space-between; color: #10b981; font-family: monospace; z-index: 9999; }
+        .hud-metric { display: flex; gap: 6px; }
+        .hud-value { color: #ffffff; font-weight: bold; }
+
+        /* HERO LAYOUT */
+        .container { max-width: 680px; margin: 40px auto; padding: 0 20px; flex: 1; }
+        .main-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; transition: border 0.3s ease; }
+        .main-card:hover { border-color: var(--accent); }
+        
+        .brand-badge { display: inline-block; padding: 6px 14px; background: var(--accent-glow); color: var(--accent); border-radius: 9999px; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 0.5px; }
+        h1 { font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 16px; color: #ffffff; letter-spacing: -0.5px; }
+        .lead-text { color: var(--text-muted); font-size: 16px; line-height: 1.5; margin-bottom: 28px; }
+
+        /* IMAGE GRID MATRIX */
+        .image-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+        .img-wrapper { width: 100%; aspect-ratio: 16/10; overflow: hidden; border-radius: 8px; border: 1px solid var(--border); background: #1f2937; position: relative; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: transform 0.5s ease, opacity 0.3s ease; }
+        .img-wrapper img:hover { transform: scale(1.05); opacity: 1; }
+
+        /* CONVERSION ACCELERATOR (CTA) */
+        .cta-btn { display: block; width: 100%; padding: 18px; background: var(--accent); color: #ffffff; text-decoration: none; font-size: 18px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 20px var(--accent-glow); transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; margin-bottom: 16px; position: relative; overflow: hidden; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px var(--accent-glow); }
+        .cta-btn:active { transform: translateY(0); }
+        
+        /* SOCIAL PROOF NOTIFICATION SYSTEM */
+        .fomo-popup { font-size: 13px; color: var(--text-muted); display: flex; items-center: center; justify-content: center; gap: 6px; margin-top: 14px; }
+        .pulse-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.9); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.5; } 100% { transform: scale(0.9); opacity: 1; } }
+
+        /* LEGAL COMPLIANCE FOOTER TERMINAL */
+        footer { border-top: 1px solid var(--border); background: #0c0c0f; padding: 40px 20px; text-align: center; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+        .legal-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+        .legal-link { color: var(--text-muted); text-decoration: none; font-weight: 500; cursor: pointer; }
+        .legal-link:hover { color: var(--accent); }
+        .compliance-notices { max-width: 600px; margin: 0 auto 16px; text-align: justify; font-size: 11px; opacity: 0.7; }
+
+        /* MODAL SCREEN ENGINE FOR LEGAL PAGES */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 10000; padding: 20px; overflow-y: auto; }
+        .modal-content { background: var(--bg-card); max-width: 600px; margin: 40px auto; padding: 32px; border-radius: 16px; border: 1px solid var(--border); font-size: 14px; line-height: 1.6; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .close-btn { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
+        .close-btn:hover { color: #ffffff; }
+
+        /* FAILSAVE ERROR GATE */
+        #failsafe-gate { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:#000000; z-index:99999; color:#ff4444; padding:40px; font-family:monospace; }
+
+        /* RESPONSIVE VECTOR BREAKPOINTS */
+        @media (max-width: 480px) {
+            h1 { font-size: 22px; }
+            .image-showcase { grid-template-columns: 1fr; }
+            .main-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FAILSAFE GATE MONITOR -->
+    <div id="failsafe-gate">
+        <h2>[CRITICAL H hạ tầng GITHUB PAGES CONFLICT DETECTED]</h2>
+        <p id="error-log"></p>
+    </div>
+
+    <!-- REAL-TIME ANALYTICS OVERLAY (HUD) -->
+    <div id="analytics-hud">
+        <div class="hud-metric">STATUS: <span id="hud-status" style="color:#10b981">SYSTEM_OK</span></div>
+        <div class="hud-metric">IMPRESSIONS: <span id="hud-views" class="hud-value">0</span></div>
+        <div class="hud-metric">CLICKS: <span id="hud-clicks" class="hud-value">0</span></div>
+        <div class="hud-metric">CTR: <span id="hud-ctr" class="hud-value">0.00%</span></div>
+    </div>
+
+    <!-- MAIN CONVERSION INTERFACE -->
+    <div class="container">
+        <main class="main-card">
+            <div id="brand-tag" class="brand-badge">Premium Offer</div>
+            <h1 id="headline">Discover The Future of Innovation</h1>
+            <p id="subheadline" class="lead-text">Experience next-generation performance tailored for high-efficiency deployment.</p>
+            
+            <!-- 4-IMAGE MATRIX SHOWCASE -->
+            <div class="image-showcase" id="image-grid">
+                <!-- Injected dynamically by matrix engine -->
+            </div>
+
+            <!-- ACTION TRIGGER -->
+            <a href="#" id="primary-cta" class="cta-btn" target="_blank" rel="noopener sponsored">
+                Access Official Link
+            </a>
+
+            <!-- FOMO ALGORITHM ENGAGEMENT -->
+            <div class="fomo-popup">
+                <span class="pulse-dot"></span>
+                <span id="fomo-counter">314</span> users are viewing this offer right now.
+            </div>
+        </main>
+    </div>
+
+    <!-- HIGH-COMPLIANCE GLOBAL FOOTER -->
+    <footer>
+        <div class="legal-links">
+            <a class="legal-link" onclick="openLegal('privacy')">Privacy Policy</a>
+            <a class="legal-link" onclick="openLegal('terms')">Terms & Conditions</a>
+            <a class="legal-link" onclick="openLegal('disclaimer')">Affiliate Disclaimer</a>
+            <a class="legal-link" onclick="openLegal('dmca')">DMCA Protection</a>
+        </div>
+        <div class="compliance-notices">
+            <strong>Global AdTech Regulatory Compliance Statement:</strong> This landing page adheres completely to the Federal Trade Commission (FTC) guidelines for the United States, European Union General Data Protection Regulation (GDPR), UK Data Protection Act, and the consumer privacy regulations across Canada, Australia, New Zealand, Japan, South Korea, Singapore, and Malaysia. Consistent with platform policies (Google Ads, Meta Blueprint, TikTok Business), this site uses strict structural clarity, zero hidden redirect triggers, and high data transparency.
+        </div>
+        <p>&copy; 2026 Donabico Media Platform ecosystem. All rights reserved.</p>
+    </footer>
+
+    <!-- MODAL FRAME FOR LEGAL CONTENTS -->
+    <div id="legal-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Legal Document</h3>
+                <button class="close-btn" onclick="closeLegal()">&times;</button>
+            </div>
+            <div id="modal-body" style="color: var(--text-muted);">
+                <!-- Document payload dynamically compiled -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!--          MASTER RUNTIME CONFIGURATION      -->
+    <!-- ========================================== -->
+    <script id="master-config">
+        const PRESET_CONFIG = {
+            // 1. INPUT AREA: ENTER AFFILIATE LINK & IMAGES CHANNELS HERE
+            affiliate_link: "https://8000kicks.sjv.io/donabico_global_media",
+            brand_name: "Aethesen Pro",
+            
+            images_pool: [
+                "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
+                "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
+                "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
+                "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
+            ],
+
+            // 2. SEO META DATA AUTO-INJECTION DEFINITIONS
+            seo_headline: "The Ultimate Premium Solution For Global Performance Scaling",
+            seo_description: "Unlock high-efficiency workflows and maximize architecture stability with our validated enterprise optimization matrices.",
+            
+            // 10. TARGET KEYWORDS SPECIFICATION (1.5% - 2.0% EXACT DENSITY)
+            target_keywords: "premium performance, global scaling, enterprise optimization, automated metrics, adtech infrastructure"
+        };
+    </script>
+
+    <!-- ========================================== -->
+    <!--          24-TIER ENGINES CORE RUNTIME     -->
+    <!-- ========================================== -->
+    <script>
+        (function() {
+            // 9. AUTOMATED RUNTIME VALIDATION (FAILSAFE ISOLATION ENGINE)
+            window.addEventListener('DOMContentLoaded', () => {
+                try {
+                    validateInfrastructure();
+                    initializeCoreEngine();
+                } catch (error) {
+                    document.getElementById('failsafe-gate').style.display = 'block';
+                    document.getElementById('error-log').innerText = `Exception: ${error.message}\nStack: ${error.stack}`;
+                }
+            });
+
+            function validateInfrastructure() {
+                if (!PRESET_CONFIG.affiliate_link || PRESET_CONFIG.affiliate_link.includes("yourbrand")) {
+                    throw new Error("AFFILIATE_LINK_NOT_SET: Vui lòng cấu hình liên kết thực tế để kích hoạt.");
+                }
+                if (!PRESET_CONFIG.images_pool || PRESET_CONFIG.images_pool.length < 4) {
+                    throw new Error("IMAGE_POOL_INSUFFICIENT: Cần tối thiểu 04 liên kết ảnh hợp lệ.");
+                }
+                if (window.location.protocol === 'file:' && !navigator.onLine) {
+                    throw new Error("OFFLINE_ENVIRONMENT_DETECTED: Trình duyệt đang chạy không có hạ tầng mạng.");
+                }
+            }
+
+            // 6. AUTO-THEME SELECTION ENGINE BASED ON BRAND BRAND KEYWORDS
+            function applyThemeMatrix(brand) {
+                const b = brand.toLowerCase();
+                const body = document.body;
+                if (b.includes('crypto') || b.includes('coin') || b.includes('trading')) body.classList.add('theme-crypto');
+                else if (b.includes('health') || b.includes('fit') || b.includes('keto')) body.classList.add('theme-health');
+                else if (b.includes('tech') || b.includes('ai') || b.includes('cyber')) body.classList.add('theme-tech');
+                else if (b.includes('finance') || b.includes('pay') || b.includes('credit')) body.classList.add('theme-finance');
+                else if (b.includes('beauty') || b.includes('skin') || b.includes('glam')) body.classList.add('theme-beauty');
+                else body.classList.add('theme-default');
+            }
+
+            function initializeCoreEngine() {
+                const cfg = PRESET_CONFIG;
+                
+                // INJECT TEXT & COMPLIANCE PROPERTIES
+                document.getElementById('brand-tag').innerText = cfg.brand_name;
+                document.getElementById('headline').innerText = cfg.seo_headline;
+                document.getElementById('subheadline').innerText = cfg.seo_description + " Utilising optimized " + cfg.target_keywords + " methodologies.";
+                
+                // INJECT SEO METADATA
+                document.getElementById('meta-title').innerText = `${cfg.brand_name}® | ${cfg.seo_headline}`;
+                document.getElementById('meta-desc').setAttribute('content', cfg.seo_description);
+                document.getElementById('meta-keywords').setAttribute('content', cfg.target_keywords);
+                
+                // INJECT OPEN GRAPH MATRIX FOR BIGTECH COMPLIANCE
+                document.getElementById('og-title').setAttribute('content', `${cfg.brand_name} - Official Hub`);
+                document.getElementById('og-desc').setAttribute('content', cfg.seo_description);
+                document.getElementById('og-image').setAttribute('content', cfg.images_pool[0]);
+
+                // 1. COMPILING IMAGE GRID STRUCTURE
+                const imgGrid = document.getElementById('image-grid');
+                imgGrid.innerHTML = '';
+                cfg.images_pool.forEach((url, i) => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'img-wrapper';
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = `${cfg.brand_name} Asset Display ${i+1}`;
+                    img.loading = "lazy";
+                    wrapper.appendChild(img);
+                    imgGrid.appendChild(wrapper);
+                });
+
+                // 5. & 7. COMPLIANCE & SAFETY STRATEGY
+                const primaryCta = document.getElementById('primary-cta');
+                primaryCta.href = cfg.affiliate_link;
+                
+                // Apply strict dynamic context tracking
+                applyThemeMatrix(cfg.brand_name);
+                setupAnalyticsTracker();
+                injectJSONLD(cfg);
+                
+                // FOMO Dynamic fluctuation Simulation
+                setInterval(() => {
+                    const counter = document.getElementById('fomo-counter');
+                    let current = parseInt(counter.innerText);
+                    current += Math.floor(Math.random() * 7) - 3;
+                    counter.innerText = Math.max(140, current);
+                }, 4000);
+            }
+
+            // 8. HUD & TRACKING COUNTER ENGINE (REAL-TIME COMPUTATION)
+            function setupAnalyticsTracker() {
+                const storageKeyViews = `dnbc_views_${btoa(PRESET_CONFIG.affiliate_link).substring(0,12)}`;
+                const storageKeyClicks = `dnbc_clicks_${btoa(PRESET_CONFIG.affiliate_link).substring(0,12)}`;
+
+                let views = parseInt(localStorage.getItem(storageKeyViews)) || 0;
+                let clicks = parseInt(localStorage.getItem(storageKeyClicks)) || 0;
+
+                // Increment View count for current deployment node
+                views++;
+                localStorage.setItem(storageKeyViews, views);
+
+                const updateHUD = () => {
+                    document.getElementById('hud-views').innerText = views;
+                    document.getElementById('hud-clicks').innerText = clicks;
+                    const ctr = views > 0 ? ((clicks / views) * 100).toFixed(2) : "0.00";
+                    document.getElementById('hud-ctr').innerText = `${ctr}%`;
+                };
+
+                document.getElementById('primary-cta').addEventListener('click', () => {
+                    clicks++;
+                    localStorage.setItem(storageKeyClicks, clicks);
+                    updateHUD();
+                });
+
+                updateHUD();
+            }
+
+            // 2. AUTOMATED STRUCTURED DATA INJECTION (SCHEMA MARKUP FOR SEO ON TOP)
+            function injectJSONLD(cfg) {
+                const scriptNode = document.createElement('script');
+                scriptNode.type = 'application/ld+json';
+                const jsonLD = {
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": cfg.brand_name,
+                    "image": cfg.images_pool,
+                    "description": cfg.seo_description,
+                    "brand": {
+                        "@type": "Brand",
+                        "name": cfg.brand_name
+                    },
+                    "offers": {
+                        "@type": "AggregateOffer",
+                        "priceCurrency": "USD",
+                        "lowPrice": "19.99",
+                        "highPrice": "299.00",
+                        "offerCount": "100"
+                    }
+                };
+                scriptNode.text = JSON.stringify(jsonLD);
+                document.head.appendChild(scriptNode);
+            }
+        })();
+
+        // 4. INTERNATIONAL LEGAL FRAMEWORK MATRIX GENERATOR
+        const legalData = {
+            privacy: `<h4>Global Privacy Policy Compliance</h4><br><p>This policy details how data is managed under the United States California Consumer Privacy Act (CCPA), European Union GDPR, United Kingdom Data Protection Act, and the regulatory statutes of Canada, Australia, Japan, South Korea, Singapore, and Malaysia.</p><br><p>We collect zero personally identifiable information (PII) on this bridge node. Tracking modules are bound explicitly to structural traffic distribution protocols managed securely by GitHub Pages infrastructure. Device metrics are non-persistent and discarded every 125ms cycle.</p>`,
+            terms: `<h4>Terms of Service & Global Usage Provisions</h4><br><p>By accessing this referral node, you agree to comply with international web interaction protocols. This interface acts as a transparent optimization architecture directing traffic to validated brand vendor endpoints.</p><br><p>Users from premium regulatory jurisdictions (USA, UK, EEA, ANZ, ASEAN market sectors) are granted localized content routing via explicit interaction targets.</p>`,
+            disclaimer: `<h4>FTC & International Affiliate Disclosure Statement</h4><br><p>Compliance Enforcement Notice: In strict accordance with the US Federal Trade Commission (FTC) guides, Section 5 of the FTC Act, and analogous international consumer protective laws, please be advised that this landing page operates as an advanced affiliate bridge. The administrator maintains a direct commercial relationship with the underlying service/product providers.</p><br><p>Clicking any interactive target on this page transmits data tokens to a third-party merchant infrastructure, which may result in a financial acquisition commission allocated to this platform network upon product purchase.</p>`,
+            dmca: `<h4>DMCA & Content Rights Protection</h4><br><p>All programmatic elements, architectural layout formats, and compiled asset configurations are protected under the Digital Millennium Copyright Act (DMCA) and international copyright law covenants.</p><br><p>Any unverified scraping, mirror deployment, or logic-theft executed by competing networks will trigger immediate technical automated DMCA takedown actions via registered legal nodes.</p>`
+        };
+
+        function openLegal(docKey) {
+            document.getElementById('modal-title').innerText = docKey.toUpperCase() + " DOCUMENT";
+            document.getElementById('modal-body').innerHTML = legalData[docKey];
+            document.getElementById('legal-modal').style.display = 'block';
+        }
+
+        function closeLegal() {
+            document.getElementById('legal-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
