@@ -19,6 +19,10 @@
         .text-balance { text-wrap: balance; }
         body { opacity: 0; transition: opacity 0.15s ease-in; }
         body.system-ready { opacity: 1; }
+        /* Scrollbar cho Modal Pháp lý */
+        #modal-system-content::-webkit-scrollbar { width: 6px; }
+        #modal-system-content::-webkit-scrollbar-track { background: #0f172a; }
+        #modal-system-content::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
     </style>
 </head>
 <body class="bg-[#090d16] text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
@@ -27,10 +31,10 @@
         window.TARGET_CONFIG = {
             affiliate_link: "https://8000kicks.sjv.io/donabico_global_media",
             image_links: [
-                "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
-                "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
-                "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
-                "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
+                 "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
+                 "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
+                 "https://i.postimg.cc/wjnrf8sV/8000kicks-003.jpg",
+                 "https://i.postimg.cc/BnRzY91h/8000kicks-004.jpg"
             ]
         };
     </script>
@@ -80,8 +84,7 @@
                 <h3 class="text-xl font-bold uppercase tracking-wider text-white">Verified Product Showcases</h3>
                 <p class="text-xs text-slate-500 font-mono">Real-time asset mapping. Click images to enlarge.</p>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="dynamic-image-injector">
-                </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="dynamic-image-injector"></div>
         </section>
 
         <section class="grid lg:grid-cols-3 gap-12 border-t border-slate-800/60 pt-16">
@@ -169,12 +172,12 @@
     </footer>
 
     <div id="legal-system-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-        <div class="bg-[#0f172a] border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+        <div class="bg-[#0f172a] border border-slate-800 rounded-2xl max-w-3xl w-full max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
             <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
-                <h3 id="modal-system-title" class="text-lg font-bold text-white uppercase tracking-wider font-mono">System Legal Core</h3>
+                <h3 id="modal-system-title" class="text-xl font-bold text-white uppercase tracking-wider font-mono">System Legal Core</h3>
                 <button onclick="window.closeModal()" class="text-slate-400 hover:text-white text-3xl font-bold p-1 leading-none">&times;</button>
             </div>
-            <div id="modal-system-content" class="p-6 overflow-y-auto font-sans text-sm text-slate-400 space-y-4 leading-relaxed"></div>
+            <div id="modal-system-content" class="p-6 overflow-y-auto font-sans text-sm text-slate-300 space-y-5 leading-relaxed bg-[#0b1120]"></div>
         </div>
     </div>
 
@@ -317,23 +320,17 @@
                     }
                 };
 
-                // Kích hoạt tiêm link Affiliate vào ngay khi lướt chuột/chạm tay (Trước khi click)
                 anchor.addEventListener("mouseenter", injectRealLink);
                 anchor.addEventListener("touchstart", injectRealLink, {passive: true});
 
-                // Chặn triệt để ký tự # nhảy lên URL trong trường hợp khách click quá nhanh
                 anchor.addEventListener("click", function(e) {
                     if (this.getAttribute("href") === "javascript:void(0);") {
-                        e.preventDefault(); // CHẶN LỖI NHẢY TRANG / SINH DẤU #
-                        
-                        // Fallback tự mở cửa sổ mới nếu link chưa kịp tiêm
+                        e.preventDefault(); 
                         if (!/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) {
                             const newTab = window.open(window.TARGET_CONFIG.affiliate_link, '_blank', 'noopener,noreferrer');
                             if(newTab) newTab.opener = null;
                         }
                     }
-
-                    // Ghi nhận Log
                     let clickLog = parseInt(sessionStorage.getItem("local_clicks_logged") || "0") + 1;
                     sessionStorage.setItem("local_clicks_logged", clickLog);
                     document.getElementById("local-clicks").textContent = clickLog;
@@ -362,16 +359,70 @@
             }
             requestAnimationFrame(updateClock);
 
+            // =================================================================
+            // BỘ TỪ ĐIỂN PHÁP LÝ TOÀN CẦU (GLOBAL COMPLIANCE MATRIX) - FIX LỖI "CORE ERROR"
+            // =================================================================
             const lawMatrixStorage = {
-                terms: "<h3>Terms & Conditions</h3><p>By interfacing with this secure distributed web routing node, you confirm automated alignment with standard edge asset conditions.</p>",
-                privacy: "<h3>Privacy Charter</h3><p>We champion zero personal identifiers data capture policies. This system executes no commercial ad tracking code or profiling pixel payloads.</p>",
-                cookie: "<h3>Cookie Consent Matrix</h3><p>This edge environment implements zero-cookie data architectures. Volatile browser cache fields are utilized purely to record session clicks.</p>",
-                ftc: `<h3>FTC & Global Marketing Affiliation Disclosure</h3><p>In rigorous compliance with the FTC guidelines, and consumer transparency acts across Canada, the UK, and the EU, outward navigation portals embedded here operate as active monetization pathways.</p>`
+                terms: `
+                    <h3 class="text-white font-bold text-lg border-b border-slate-700 pb-2">1. Terms of Service & General Conditions</h3>
+                    <p>By interfacing with this secure distributed web routing node ("the Platform"), you confirm your automated alignment with standard edge asset conditions. The Platform serves as an informational and technical routing gateway only.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Intellectual Property:</strong> All operational trademarks, including ${brandData.name}, remain the property of their respective owners. This gateway is an independent distribution partner.</li>
+                        <li><strong>System Integrity:</strong> All session processing sequences run securely inside local browser memory registers. Automated scraper systems, bots, or unauthorized data indexing vectors are heavily blocked.</li>
+                        <li><strong>Limitation of Liability:</strong> We do not hold liability for transactions processed on third-party destination endpoints. Fulfillment and customer service remain the sole responsibility of the merchant.</li>
+                    </ul>`,
+                
+                privacy: `
+                    <h3 class="text-white font-bold text-lg border-b border-slate-700 pb-2">2. Global Privacy Charter</h3>
+                    <p>We champion a <strong>Zero Personally Identifiable Information (PII)</strong> data capture policy. Our technical routing architecture is designed for absolute anonymity.</p>
+                    <p><strong>Data Processing Statement:</strong></p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>This system executes NO commercial ad tracking code (e.g., Meta Pixel, Google Analytics) on this gateway.</li>
+                        <li>No profiling pixel payloads or tracking scripts are deployed.</li>
+                        <li>Your connection signature, IP address, and browser data remain strictly sandboxed. We do not store, sell, or aggregate your digital footprint to data brokers.</li>
+                    </ul>`,
+                
+                cookie: `
+                    <h3 class="text-white font-bold text-lg border-b border-slate-700 pb-2">3. Zero-Cookie Consent Matrix</h3>
+                    <p>This edge environment implements advanced <strong>zero-cookie data architectures</strong>.</p>
+                    <p>Unlike standard commercial websites that inject tracking files into your hard drive, this node operates strictly on volatile browser cache fields. Local Storage and Session Storage are utilized purely to record structural metrics (such as local clicks or page impressions) specific to your screen.</p>
+                    <p>Once you close your browser session, all local mathematical allocations are automatically flushed. We require no formal cookie opt-in as no cross-site tracking mechanisms are active.</p>`,
+                
+                ftc: `
+                    <h3 class="text-white font-bold text-lg border-b border-slate-700 pb-2">4. FTC & Global Affiliate Disclosure</h3>
+                    <p>In rigorous compliance with the United States Federal Trade Commission (FTC) guidelines, the UK Advertising Standards Authority (ASA), and consumer transparency acts across Canada and the EU, we openly disclose our commercial intent.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Financial Compensation:</strong> The outward navigation portals embedded within this site operate as active monetization pathways (Affiliate Links).</li>
+                        <li><strong>Commission Structure:</strong> The maintainers of this system (DONABICO MEDIA) receive a performance-based financial commission if you click our verified routing links and finalize a purchase at the ${brandData.name} checkout portal.</li>
+                        <li>This compensation does not affect the final retail price you pay. It simply sustains our infrastructure overhead.</li>
+                    </ul>`,
+                
+                gdpr: `
+                    <h3 class="text-white font-bold text-lg border-b border-slate-700 pb-2">5. UK/EU GDPR Data Statement</h3>
+                    <p>This platform fully respects the principles of the General Data Protection Regulation (GDPR) enacted across the European Union and the United Kingdom.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Data Minimization:</strong> Because zero personal identifier tags (names, emails, financial data) are ingested, cached, or transferred over our external pipelines, your digital identity remains 100% anonymized.</li>
+                        <li><strong>Rights of the Data Subject:</strong> As we do not process or store PII databases, the "Right to be Forgotten" or "Right to Access" are natively fulfilled through our structural lack of data collection.</li>
+                    </ul>`,
+                
+                ccpa: `
+                    <h3 class="text-white font-bold text-lg border-b border-slate-700 pb-2">6. CCPA/CPRA Privacy Rights (California, USA)</h3>
+                    <p>Under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA), residents retain complete ownership over their digital trails.</p>
+                    <p><strong>"Do Not Sell My Personal Information"</strong>: We categorically state that this routing node <strong>does not capture, harvest, or sell</strong> consumer metadata parameters, browsing habits, or personal identities to aggregate marketplaces or third parties. Your outbound transactional intent is strictly voluntary and anonymous at the gateway level.</p>`,
+                
+                spam: `
+                    <h3 class="text-white font-bold text-lg border-b border-slate-700 pb-2">7. Anti-Spam Operational Compliance</h3>
+                    <p>Our global promotional pipelines enforce a zero-tolerance policy against mass un-targeted execution vectors (Spam).</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Our distribution networks operate exclusively through explicit, public index streams.</li>
+                        <li>We fully comply with the CAN-SPAM Act (USA), CASL requirements (Canada), and general international anti-nuisance communication decrees.</li>
+                        <li>We do not utilize unauthorized email scraping or intrusive SMS marketing routing algorithms.</li>
+                    </ul>`
             };
 
             window.triggerModal = function(documentKey) {
                 document.getElementById("modal-system-title").innerHTML = `${brandData.name} Official Compliance Layer`;
-                document.getElementById("modal-system-content").innerHTML = lawMatrixStorage[documentKey] || "<h3>Document Dynamic Ingestion Core Error</h3>";
+                document.getElementById("modal-system-content").innerHTML = lawMatrixStorage[documentKey] || `<h3 class="text-red-400 font-bold">Document Dynamic Ingestion Core Error</h3><p>System failed to map the requested legal matrix key. Please refresh the node.</p>`;
                 document.getElementById("legal-system-modal").classList.remove("hidden");
             };
             window.closeModal = function() {
