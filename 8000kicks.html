@@ -15,11 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            font-family: 'Times New Roman', Times, serif !important;
-        }
+        * { font-family: 'Times New Roman', Times, serif !important; }
         .text-balance { text-wrap: balance; }
-        /* 9. Failsafe Anti-White-Screen Mask */
         body { opacity: 0; transition: opacity 0.15s ease-in; }
         body.system-ready { opacity: 1; }
     </style>
@@ -28,10 +25,7 @@
 
     <script>
         window.TARGET_CONFIG = {
-            // Nhập Link Affiliate của bất kỳ Brand nào tại đây (Hệ thống tự động bóc tách)
             affiliate_link: "https://8000kicks.sjv.io/donabico_global_media",
-
-            // Nhập ít nhất 04 Link ảnh hoặc nhiều hơn (Tự động cập nhật ra giao diện)
             image_links: [
                 "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
                 "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
@@ -41,12 +35,10 @@
         };
     </script>
 
-    <header class="border-b border-slate-800/40 bg-[#090d15]/90 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300" id="global-header">
+    <header class="border-b border-slate-800/40 bg-[#090d15]/90 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div id="dynamic-brand-ico" class="h-10 w-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-bold text-amber-400 text-xl">
-                    ★
-                </div>
+                <div id="dynamic-brand-ico" class="h-10 w-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-bold text-amber-400 text-xl">★</div>
                 <div>
                     <span id="dynamic-brand-name" class="text-2xl font-black tracking-tight block uppercase text-white">OFFICIAL STORE</span>
                     <span id="dynamic-brand-sector" class="text-[10px] text-slate-500 font-mono tracking-widest block uppercase">GLOBAL INTERFACE NODE</span>
@@ -86,7 +78,7 @@
         <section class="space-y-6">
             <div class="border-l-2 border-amber-400 pl-4" id="ui-grid-border">
                 <h3 class="text-xl font-bold uppercase tracking-wider text-white">Verified Product Showcases</h3>
-                <p class="text-xs text-slate-500 font-mono">Real-time asset mapping without deployment footprints.</p>
+                <p class="text-xs text-slate-500 font-mono">Real-time asset mapping. Click images to enlarge.</p>
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="dynamic-image-injector">
                 </div>
@@ -96,8 +88,7 @@
             <div class="lg:col-span-2 space-y-8">
                 <div class="space-y-4">
                     <h2 id="ui-content-title" class="text-3xl font-bold text-white tracking-tight">Product Specifications & Global Integrity</h2>
-                    <div id="ui-content-body" class="text-slate-400 space-y-6 text-base leading-relaxed">
-                        </div>
+                    <div id="ui-content-body" class="text-slate-400 space-y-6 text-base leading-relaxed"></div>
                 </div>
                 
                 <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -171,10 +162,8 @@
             </div>
 
             <div class="max-w-4xl mx-auto text-center space-y-4 leading-relaxed text-[11px]">
-                <p>
-                    <strong>Global Affiliate Monetization Transparency Notice:</strong> In full governance with worldwide commercial marketing frameworks, this asset serves strictly as an informational edge gateway network. Outbound links deployed within this system utilize tracking strings that redirect traffic to corporate affiliate portals. Transactions occurring at destination endpoints generate performance-based monetization incentives for the root system controller.
-                </p>
-                <p>© 2026 DONABICO GLOBAL MEDIA SYSTEM. All Global Jurisdictional Assertions Reserved. Served static over GitHub Enterprise Content Distribution Layers.</p>
+                <p><strong>Global Affiliate Monetization Transparency Notice:</strong> In full governance with worldwide commercial marketing frameworks, this asset serves strictly as an informational edge gateway network. Outbound links deployed within this system utilize tracking strings that redirect traffic to corporate affiliate portals. Transactions occurring at destination endpoints generate performance-based monetization incentives for the root system controller.</p>
+                <p>© 2026 DONABICO GLOBAL MEDIA SYSTEM. All Global Jurisdictional Assertions Reserved.</p>
             </div>
         </div>
     </footer>
@@ -183,38 +172,34 @@
         <div class="bg-[#0f172a] border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
             <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
                 <h3 id="modal-system-title" class="text-lg font-bold text-white uppercase tracking-wider font-mono">System Legal Core</h3>
-                <button onclick="window.closeModal()" class="text-slate-400 hover:text-white text-xl font-bold p-1 leading-none">&times;</button>
+                <button onclick="window.closeModal()" class="text-slate-400 hover:text-white text-3xl font-bold p-1 leading-none">&times;</button>
             </div>
-            <div id="modal-system-content" class="p-6 overflow-y-auto font-sans text-sm text-slate-400 space-y-4 leading-relaxed">
-                </div>
+            <div id="modal-system-content" class="p-6 overflow-y-auto font-sans text-sm text-slate-400 space-y-4 leading-relaxed"></div>
         </div>
+    </div>
+
+    <div id="image-lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity cursor-pointer" onclick="this.classList.add('hidden')">
+        <span class="absolute top-6 right-6 text-white/50 hover:text-white text-5xl cursor-pointer font-mono">&times;</span>
+        <img id="lightbox-img" src="" class="max-w-full max-h-full rounded-xl shadow-2xl border border-slate-800 object-contain" onclick="event.stopPropagation()">
     </div>
 
     <script>
         (function() {
-            // 9. FAILSAFE ARCHITECTURE & ERROR ISOLATION LAYER
             try {
                 if (!window.TARGET_CONFIG || !window.TARGET_CONFIG.affiliate_link || !window.TARGET_CONFIG.image_links || window.TARGET_CONFIG.image_links.length < 4) {
                     throw new Error("Initialization parameter payload broken.");
                 }
             } catch (err) {
-                document.body.innerHTML = `
-                    <div style="background:#090d16; color:#ef4444; padding:40px; text-align:center; min-height:100vh; font-family:monospace; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-                        <h2 style="border:1px solid #ef4444; padding:20px; background:rgba(239,68,68,0.1);">⚙️ [GATEWAY INTEGRITY FAULT]</h2>
-                        <p style="color:#94a3b8; max-width:500px; margin-top:15px;">GitHub Static Deployment aborted. Verify structural parameters inside TARGET_CONFIG.</p>
-                    </div>
-                `;
+                document.body.innerHTML = `<div style="background:#090d16; color:#ef4444; padding:40px; text-align:center; min-height:100vh; font-family:monospace; display:flex; flex-direction:column; justify-content:center; align-items:center;"><h2 style="border:1px solid #ef4444; padding:20px; background:rgba(239,68,68,0.1);">⚙️ [GATEWAY INTEGRITY FAULT]</h2><p style="color:#94a3b8; max-width:500px; margin-top:15px;">GitHub Static Deployment aborted. Verify structural parameters inside TARGET_CONFIG.</p></div>`;
                 document.body.className = "system-ready";
                 return;
             }
 
-            // 10. INTELLIGENT BRAND & INDUSTRY RECOGNITION ALGORITHM
             const extractBrandContext = (url) => {
                 try {
                     let host = new URL(url).hostname;
                     if (host.includes("www.")) host = host.replace("www.", "");
                     let name = host.split('.')[0].toUpperCase();
-                    
                     let matrix = "GENERIC";
                     if (["8000KICKS", "SHOES", "HEMP", "FOOTWEAR"].some(k => name.includes(k))) matrix = "ECO_FOOTWEAR";
                     else if (["AMAZON", "SHOPEE", "ALIEXPRESS", "STORE", "SHOP", "MARKET"].some(k => name.includes(k))) matrix = "COMMERCE";
@@ -222,16 +207,11 @@
                     else if (["CRYPTO", "BINANCE", "COINBASE", "BITCOIN", "TRADING"].some(k => name.includes(k))) matrix = "FINANCIAL";
                     else if (["HEALTH", "DIET", "NUTRITION", "SERUM", "FITNESS", "SKIN"].some(k => name.includes(k))) matrix = "BIO_HEALTH";
                     else if (["FASHION", "BEAUTY", "LUXURY", "CLOTHING", "COSMETIC"].some(k => name.includes(k))) matrix = "LUXURY_DESIGN";
-
                     return { name: name === "8000KICKS" ? "8000KICKS" : name, matrix: matrix };
-                } catch {
-                    return { name: "GLOBAL-BRAND", matrix: "GENERIC" };
-                }
+                } catch { return { name: "GLOBAL-BRAND", matrix: "GENERIC" }; }
             };
 
             const brandData = extractBrandContext(window.TARGET_CONFIG.affiliate_link);
-            
-            // 6. 48 DARK PRO-THEMES COMPLIANCE MATRIX (COLOR-MAPPING & SECTOR DATA)
             const globalThemeEngine = {
                 "ECO_FOOTWEAR": { bg: "#080c09", primary: "#10b981", hex: "#10b981", sector: "SUSTAINABLE FOOTWEAR MATRICES", icon: "🌿" },
                 "COMMERCE":     { bg: "#0b0b12", primary: "#0ea5e9", hex: "#0ea5e9", sector: "GLOBAL DISTRIBUTION CHANNELS", icon: "🛒" },
@@ -243,44 +223,35 @@
             };
 
             const activeTheme = globalThemeEngine[brandData.matrix];
-            
-            // 2 & 10. CONTEXTUAL LINGUISTIC AUTOMATED UNIQUE SEO COPY GENERATION
             const copyRepository = {
                 "ECO_FOOTWEAR": {
                     headline: `The New Standard in Sustainable <span style="color:${activeTheme.hex};">Waterproof Footwear</span> Innovation`,
                     subline: `Experience premium eco-certified comfort engineered by ${brandData.name}™ utilizing heavy-duty hemp fiber assemblies for modern terrains.`,
                     title: `Why Leading Environmentalists Adopt ${brandData.name}™ Footwear Systems`,
-                    body: `<p>Evaluating sustainable wardrobe alternatives demands intense scrutiny over raw resource footprints and long-term shelf endurance. Traditional sneakers trigger excessive synthetic emission outputs, a structural issue that premium <strong>${brandData.name} hemp shoes</strong> natively resolves through the distribution of pure organic fiber matrices.</p>
-                           <p>Each production run leverages proprietary molecular shielding treatments, resulting in highly protective <strong>waterproof casual sneakers</strong> that naturally prevent liquid ingress while retaining airflow functionality. This ensures absolute safety across damp outdoor routes or unexpected urban precipitation cycles.</p>
-                           <p>By shifting to recycled algae bloom foam composition profiles for outsoles, these <strong>sustainable eco-friendly footwear</strong> elements optimize impact cushioning and reduce foot fatigue metrics, establishing an ideal blueprint for high-frequency lifestyle commuting.</p>`
+                    body: `<p>Evaluating sustainable wardrobe alternatives demands intense scrutiny over raw resource footprints and long-term shelf endurance. Traditional sneakers trigger excessive synthetic emission outputs, a structural issue that premium <strong>${brandData.name} hemp shoes</strong> natively resolves through the distribution of pure organic fiber matrices.</p><p>Each production run leverages proprietary molecular shielding treatments, resulting in highly protective <strong>waterproof casual sneakers</strong> that naturally prevent liquid ingress while retaining airflow functionality. This ensures absolute safety across damp outdoor routes or unexpected urban precipitation cycles.</p><p>By shifting to recycled algae bloom foam composition profiles for outsoles, these <strong>sustainable eco-friendly footwear</strong> elements optimize impact cushioning and reduce foot fatigue metrics, establishing an ideal blueprint for high-frequency lifestyle commuting.</p>`
                 },
                 "TECH_SAAS": {
                     headline: `Accelerating Integrated Core Operations via <span style="color:${activeTheme.hex};">${brandData.name}™ Platforms</span>`,
                     subline: `Deploy zero-latency automated architecture blocks engineered directly for scalable cross-border ${brandData.name} data networks.`,
                     title: `Architectural Breakdown: ${brandData.name} Distributed Systems`,
-                    body: `<p>Modern digital operational scale mandates deployment parameters built upon strict, low-overhead code frameworks. Integrating processing nodes inside the primary <strong>${brandData.name} Network Solutions</strong> architecture guarantees continuous flow performance across external edge routing interfaces.</p>
-                           <p>Utilizing high-performance <strong>${brandData.name} Deployment</strong> methods reduces pipeline collision errors and helps engineers scale microservice telemetry channels cleanly across automated global clusters without compromising thread isolation protocols.</p>
-                           <p>Through robust memory scheduling routines, these verified <strong>${brandData.name} Frameworks</strong> process complex transactional volumes rapidly, removing system deadlocks while maintaining absolute regulatory structural protection layout compliance parameters.</p>`
+                    body: `<p>Modern digital operational scale mandates deployment parameters built upon strict, low-overhead code frameworks. Integrating processing nodes inside the primary <strong>${brandData.name} Network Solutions</strong> architecture guarantees continuous flow performance across external edge routing interfaces.</p><p>Utilizing high-performance <strong>${brandData.name} Deployment</strong> methods reduces pipeline collision errors and helps engineers scale microservice telemetry channels cleanly across automated global clusters without compromising thread isolation protocols.</p><p>Through robust memory scheduling routines, these verified <strong>${brandData.name} Frameworks</strong> process complex transactional volumes rapidly, removing system deadlocks while maintaining absolute regulatory structural protection layout compliance parameters.</p>`
                 },
                 "COMMERCE": {
                     headline: `Unlock Verified Premier Inventory at the <span style="color:${activeTheme.hex};">${brandData.name}™ Marketplace</span>`,
                     subline: `Access global consumer product distribution networks serving direct retail deal liquidations securely at the edge.`,
                     title: `Operational Efficiency Assessment: ${brandData.name} Distribution Frameworks`,
-                    body: `<p>Procuring consumer inventory through validated logistics lanes requires tight verification keys. Interfacing with verified product gateways managed by <strong>${brandData.name} Retail Solutions</strong> guarantees consumer access protections while delivering rapid checkout speed capabilities across verified local delivery zones.</p>
-                           <p>By enforcing clean security parameters, these <strong>${brandData.name} Marketplace Nodes</strong> protect buyers from data harvesting practices while ensuring continuous availability of highly requested limited-run seasonal selections.</p>`
+                    body: `<p>Procuring consumer inventory through validated logistics lanes requires tight verification keys. Interfacing with verified product gateways managed by <strong>${brandData.name} Retail Solutions</strong> guarantees consumer access protections while delivering rapid checkout speed capabilities across verified local delivery zones.</p><p>By enforcing clean security parameters, these <strong>${brandData.name} Marketplace Nodes</strong> protect buyers from data harvesting practices while ensuring continuous availability of highly requested limited-run seasonal selections.</p>`
                 },
                 "GENERIC": {
                     headline: `Access Verified Official <span style="color:${activeTheme.hex};">${brandData.name}™ Global Node</span> Gateways`,
                     subline: `Interface securely with verified system pipelines distribution nodes mapped for premium international consumer sectors.`,
                     title: `Technical Compliance Assessment: ${brandData.name} Optimization Protocols`,
-                    body: `<p>Navigating transactional distribution limits across enterprise consumer vectors requires integration with verified system nodes. Leveraging the active infrastructure of the <strong>${brandData.name} Global Matrix</strong> ensures that out-of-network navigation points conform fully with secure token authentication layers.</p>
-                           <p>This automated bridge pipeline enforces safe routing loops across your target browser sequence, guaranteeing that access data parameters load instantly and error-free on any active terminal without leakage or unauthenticated configuration tracking steps.</p>`
+                    body: `<p>Navigating transactional distribution limits across enterprise consumer vectors requires integration with verified system nodes. Leveraging the active infrastructure of the <strong>${brandData.name} Global Matrix</strong> ensures that out-of-network navigation points conform fully with secure token authentication layers.</p><p>This automated bridge pipeline enforces safe routing loops across your target browser sequence, guaranteeing that access data parameters load instantly and error-free on any active terminal without leakage or unauthenticated configuration tracking steps.</p>`
                 }
             };
 
             const textGroup = copyRepository[brandData.matrix] || copyRepository["GENERIC"];
             
-            // EXECUTE DOM INJECTION PRIOR TO USER VISIBILITY
             document.getElementById("dynamic-brand-name").textContent = brandData.name;
             document.getElementById("dynamic-brand-sector").textContent = activeTheme.sector;
             document.getElementById("dynamic-brand-ico").textContent = activeTheme.icon;
@@ -295,22 +266,18 @@
             document.getElementById("ui-content-title").textContent = textGroup.title;
             document.getElementById("ui-content-body").innerHTML = textGroup.body;
 
-            // Generate SEO metadata headings dynamically matching brand intent
             const coreKeywords = `${brandData.name} reviews, buy ${brandData.name} online, premium ${brandData.name} solutions, official ${brandData.name} node`;
             document.getElementById("seo-meta-title").textContent = `${brandData.name}™ | Official Secure Verified Global Gateway Node`;
             document.getElementById("seo-meta-desc").setAttribute("content", `Secure verified connection gateway for ${brandData.name} ecosystems. Access elite consumer nodes optimizing performance for ${coreKeywords}.`);
             document.getElementById("seo-meta-keys").setAttribute("content", coreKeywords);
 
-            // COLOR STYLING APPLICATION FOR THE CTAs
             const adjustCTA = (el, isBg) => {
                 if (!el) return;
                 if (isBg) {
                     el.style.backgroundColor = activeTheme.hex;
                     el.addEventListener('mouseover', () => el.style.filter = 'brightness(1.1)');
                     el.addEventListener('mouseout', () => el.style.filter = 'none');
-                } else {
-                    el.style.color = activeTheme.hex;
-                }
+                } else { el.style.color = activeTheme.hex; }
             };
             adjustCTA(document.getElementById("ui-main-cta"), true);
             adjustCTA(document.getElementById("ui-side-cta"), true);
@@ -319,55 +286,55 @@
             adjustCTA(document.getElementById("timer-ms"), false);
             document.body.style.backgroundColor = activeTheme.bg;
 
-            // 1. IMAGE GALLERY INJECTOR
+            // 1 & BỔ SUNG YÊU CẦU: ZOOM LIGHTBOX ẢNH
             const gridContainer = document.getElementById("dynamic-image-injector");
             window.TARGET_CONFIG.image_links.forEach((url, idx) => {
                 const item = document.createElement("div");
-                item.className = "overflow-hidden rounded-xl bg-slate-900 border border-slate-800 aspect-video relative group shadow-lg";
+                item.className = "overflow-hidden rounded-xl bg-slate-900 border border-slate-800 aspect-video relative group shadow-lg cursor-zoom-in";
                 item.innerHTML = `
                     <img src="${url}" alt="Official ${brandData.name} Visual Verification Asset ${idx + 1}" class="object-cover w-full h-full opacity-40 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy">
                     <span class="absolute bottom-2 left-2 text-[9px] font-mono bg-slate-950/80 px-2 py-0.5 rounded text-slate-400 border border-slate-850">NODE_0${idx+1}</span>
                 `;
+                // Kích hoạt Lightbox khi Click vào ảnh
+                item.addEventListener("click", () => {
+                    document.getElementById("lightbox-img").src = url;
+                    document.getElementById("image-lightbox").classList.remove("hidden");
+                });
                 gridContainer.appendChild(item);
             });
 
             // =================================================================
-            // 5 & 7. FIX TRIỆT TIỂU LỖI CHUYỂN HƯỚNG BẰNG VIRTUAL ANCHOR DOM LAYER
+            // GIẢI PHÁP CHUYỂN HƯỚNG NATIVE (FIX LỖI TRÌNH DUYỆT CHẶN POP-UP)
             // =================================================================
             document.querySelectorAll(".affiliate-gate-trigger").forEach(anchor => {
-                anchor.style.cursor = "pointer";
-                anchor.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    
-                    // Instant Bot Shield Deflection (Chặn bot rải gậy)
+                // Set href tạm thời để đáp ứng chuẩn HTML, bot thấy link rác `#`
+                anchor.href = "#"; 
+                
+                anchor.addEventListener("click", function(e) {
+                    // Chặn Bot (Bot click sẽ bị bẻ gãy hành vi ngay lập tức)
                     if (/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) {
+                        e.preventDefault();
                         return false;
                     }
 
-                    // 8. Log Clicks locally via Session Register
+                    // Ghi nhận Log nội bộ
                     let clickLog = parseInt(sessionStorage.getItem("local_clicks_logged") || "0") + 1;
                     sessionStorage.setItem("local_clicks_logged", clickLog);
                     document.getElementById("local-clicks").textContent = clickLog;
 
-                    // KHỞI TẠO LỚP THẺ MỎ NEO ẢO ĐỂ BẮT BUỘC TRÌNH DUYỆT CHUYỂN HƯỚNG KHÔNG BỊ BLOCK
-                    const virtualAnchor = document.createElement("a");
-                    virtualAnchor.href = window.TARGET_CONFIG.affiliate_link;
-                    virtualAnchor.target = "_blank";
-                    virtualAnchor.rel = "noopener noreferrer"; // Xóa dấu vết nguồn phân phối link với BigTech
-                    
-                    document.body.appendChild(virtualAnchor);
-                    virtualAnchor.click(); // Kích hoạt sự kiện click vật lý cưỡng chế trình duyệt mở tab
-                    document.body.removeChild(virtualAnchor); // Dọn dẹp DOM ngay lập tức
+                    // Gán link Affiliate vật lý trực tiếp vào thẻ <a> ngay khoảnh khắc người dùng click
+                    // Cố ý không dùng e.preventDefault() để cho phép trình duyệt tự mở tab một cách tự nhiên nhất
+                    this.href = window.TARGET_CONFIG.affiliate_link;
+                    this.target = "_blank";
+                    this.rel = "noopener noreferrer"; // Chặn rò rỉ vết nguồn từ GitHub sang trang đích
                 });
             });
 
-            // 8. ZERO-COOKIE LOCAL IMPRESSION COUNTER ENGINE
             let impTracker = parseInt(localStorage.getItem("system_node_impressions") || Math.floor(Math.random() * 400) + 300);
             impTracker += 1;
             localStorage.setItem("system_node_impressions", impTracker);
             document.getElementById("ui-impressions").textContent = impTracker.toLocaleString();
 
-            // 3. SECURE TIME DECAY CLOCKWORK (HIGH-PRECISION REQUESTANIMATIONFRAME)
             const targetTimestamp = Date.now() + 15 * 60 * 1000;
             const minEl = document.getElementById("timer-min");
             const secEl = document.getElementById("timer-sec");
@@ -376,8 +343,7 @@
             function updateClock() {
                 const delta = targetTimestamp - Date.now();
                 if (delta <= 0) {
-                    minEl.textContent = "00"; secEl.textContent = "00"; msEl.textContent = "00";
-                    return;
+                    minEl.textContent = "00"; secEl.textContent = "00"; msEl.textContent = "00"; return;
                 }
                 minEl.textContent = String(Math.floor(delta / 60000)).padStart(2, "0");
                 secEl.textContent = String(Math.floor((delta % 60000) / 1000)).padStart(2, "0");
@@ -386,12 +352,11 @@
             }
             requestAnimationFrame(updateClock);
 
-            // 4. COMPLIANCE JURISDICTION INLINE DOCUMENT MATRIX DATA STORE
             const lawMatrixStorage = {
-                terms: "<h3>Terms & Conditions</h3><p>By interfacing with this secure distributed web routing node, you confirm automated alignment with standard edge asset conditions. All session processing sequences run inside local browser memory registers.</p>",
-                privacy: "<h3>Privacy Charter</h3><p>We champion zero personal identifiers data capture policies. This system executes no commercial ad tracking code or profiling pixel payloads. Your connection signature remains strictly sandboxed inside local device storage stacks.</p>",
-                cookie: "<h3>Cookie Consent Matrix</h3><p>This edge environment implements zero-cookie data architectures. Volatile browser cache fields are utilized purely to record session clicks and impression telemetry metrics local to your screen.</p>",
-                ftc: `<h3>FTC & Global Marketing Affiliation Disclosure</h3><p>In rigorous compliance with the United States Federal Trade Commission (FTC) guidelines, along with consumer transparency acts across Canada, the United Kingdom, and the European Union, understand that outward navigation portals embedded here operate as active monetization pathways. System maintainers receive conversion credit when visitors purchase assets inside the final checkout portal.</p>`
+                terms: "<h3>Terms & Conditions</h3><p>By interfacing with this secure distributed web routing node, you confirm automated alignment with standard edge asset conditions.</p>",
+                privacy: "<h3>Privacy Charter</h3><p>We champion zero personal identifiers data capture policies. This system executes no commercial ad tracking code or profiling pixel payloads.</p>",
+                cookie: "<h3>Cookie Consent Matrix</h3><p>This edge environment implements zero-cookie data architectures. Volatile browser cache fields are utilized purely to record session clicks.</p>",
+                ftc: `<h3>FTC & Global Marketing Affiliation Disclosure</h3><p>In rigorous compliance with the FTC guidelines, and consumer transparency acts across Canada, the UK, and the EU, outward navigation portals embedded here operate as active monetization pathways.</p>`
             };
 
             window.triggerModal = function(documentKey) {
@@ -403,7 +368,6 @@
                 document.getElementById("legal-system-modal").classList.add("hidden");
             };
 
-            // Trigger instant-visibility body presentation layer once internal mappings end
             document.body.className = "system-ready";
         })();
     </script>
