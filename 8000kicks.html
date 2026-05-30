@@ -32,16 +32,6 @@
         #modal-system-content::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
         #modal-system-content::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
-
-    <link rel="canonical" href="https://donabicomedia.net/" />
-    <meta property="og:site_name" content="Donabico Global Media System" />
-    <meta name="author" content="donabicomedia.net" />
-    <style>
-        body, p, h1, h2, h3, h4, h5, h6, a, span, li, div {
-            font-family: 'Times New Roman', Times, serif !important;
-        }
-    </style>
-
 </head>
 <body class="bg-[#090d16] text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
 
@@ -207,7 +197,6 @@
                 const query = brandName.toLowerCase();
                 let keyword = "hemp-shoes";
                 
-                // Tập hợp chính xác 08 ID ảnh Unsplash chuyên sâu ngách Giày vải gai dầu / Eco Canvas bền vững
                 const imagePools = {
                     "hemp-shoes": [
                         "photo-1608231387042-66d1773070a5", "photo-1543163521-1bf539c55dd2",
@@ -229,7 +218,6 @@
                     ]
                 };
 
-                // Ép luồng nhận diện ngách 8000Kicks đổ về kho ảnh giày gai dầu bền vững
                 if (["8000KICKS", "KICKS", "SHOES", "HEMP", "FOOTWEAR", "SNEAKERS"].some(k => query.includes(k))) keyword = "hemp-shoes";
                 else if (["TECH", "SAAS", "SOFTWARE", "HOST", "CLOUD", "AI"].some(k => query.includes(k))) keyword = "cyberpunk-tech";
                 else if (["FASHION", "LUXURY", "BEAUTY"].some(k => query.includes(k))) keyword = "luxury-fashion";
@@ -410,14 +398,21 @@
             window.closeModal = function() { document.getElementById("legal-system-modal").classList.add("hidden"); };
 
             // ==============================================================================
-            // 🛡️ MÀNG LỌC TỰ ĐỘNG KHỬ DẤU # TRÊN URL KHI BẤM CTA ĐỂ GIỮ LINK SẠCH TUYỆT ĐỐI
+            // 🛡️ LUỒNG VÀ ÉP KHỬ DẤU # TRÊN THANH ĐỊA CHỈ TRÌNH DUYỆT (ANTI-HASH ROUTER)
             // ==============================================================================
-            if (window.location.hash) {
-                window.history.replaceState('', document.title, window.location.pathname + window.location.search);
-            }
+            const clearUrlHashMatrix = () => {
+                if (window.location.hash) {
+                    window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+                }
+            };
+            
+            // Kích nổ lập tức ở 3 chu kỳ tải để đè bẹp hoàn toàn độ trễ của browser
+            clearUrlHashMatrix();
+            window.addEventListener('DOMContentLoaded', clearUrlHashMatrix);
+            window.addEventListener('load', clearUrlHashMatrix);
             window.addEventListener('hashchange', function(e) {
                 e.preventDefault();
-                window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+                clearUrlHashMatrix();
             });
 
             document.body.className = "system-ready";
