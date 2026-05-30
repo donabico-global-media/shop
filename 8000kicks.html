@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -32,16 +33,6 @@
         #modal-system-content::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
         #modal-system-content::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
-
-    <link rel="canonical" href="https://donabicomedia.net/" />
-    <meta property="og:site_name" content="Donabico Global Media System" />
-    <meta name="author" content="donabicomedia.net" />
-    <style>
-        body, p, h1, h2, h3, h4, h5, h6, a, span, li, div {
-            font-family: 'Times New Roman', Times, serif !important;
-        }
-    </style>
-
 </head>
 <body class="bg-[#090d16] text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
 
@@ -475,6 +466,98 @@
             });
 
             document.body.className = "system-ready";
+        })();
+    </script>
+
+    <script>
+        const OmegaDroneEngine = (function() {
+            // 1. Định danh độc bản cho Drone theo Đại Hiến Chương
+            const DRONE_UUID = "AETH-DRONE-" + Math.random().toString(36).substr(2, 9).toUpperCase();
+            const CORE_CONSTANT = 24;
+            
+            // Cổng API trung chuyển (Google Apps Script) để bắn dữ liệu từ Kho 1 về Kho 2
+            const TELEMETRY_GATEWAY = "https://script.google.com/macros/s/YOUR_API_KEY/exec"; 
+
+            let droneSession = {
+                drone_id: DRONE_UUID,
+                target_brand: window.TARGET_CONFIG?.affiliate_link || "UNKNOWN",
+                dwell_time: 0,
+                clicks_generated: 0,
+                is_bot: /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent),
+                timestamp: new Date().toISOString()
+            };
+            let startTime = Date.now();
+
+            // 2. Kích hoạt Lưới Bẫy Googlebot (Dynamic Schema Markup Injection)
+            // Ép Google phải index trang này theo chuẩn cấu trúc Product/Offer tối ưu SEO
+            function deployGooglebotTrap() {
+                const schemaPayload = {
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": document.title,
+                    "description": document.getElementById("seo-meta-desc")?.content || "Official verified allocation gateway",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": document.getElementById("dynamic-brand-name")?.innerText || "GLOBAL BRAND"
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "availability": "https://schema.org/InStock",
+                        "price": "0.00",
+                        "priceCurrency": "USD"
+                    }
+                };
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.text = JSON.stringify(schemaPayload);
+                document.head.appendChild(script);
+            }
+
+            // 3. Vòng Lặp Đệ Quy Đại Ma Trận (Tự nạp kinh nghiệm SEO về Tệp Prompt lõi)
+            function executeQuantumFeedback() {
+                droneSession.dwell_time = ((Date.now() - startTime) / 1000).toFixed(2);
+                
+                // Thuật toán Tàng hình (Zero-Footprint): Chỉ gửi tín hiệu khi user rời trang
+                const payload = new Blob([JSON.stringify(droneSession)], { type: 'application/json' });
+                
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon(TELEMETRY_GATEWAY, payload);
+                } else {
+                    fetch(TELEMETRY_GATEWAY, { 
+                        method: "POST", 
+                        body: payload, 
+                        keepalive: true 
+                    }).catch(() => {}); // Nuốt lỗi để đảm bảo Delta = 0, không lộ footprint
+                }
+            }
+
+            // 4. Lắng nghe hành vi thực địa
+            function initializeSwarms() {
+                deployGooglebotTrap();
+
+                // Ghi nhận dòng tiền (Click vào mỏ neo affiliate)
+                document.querySelectorAll('.affiliate-gate-trigger').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        droneSession.clicks_generated += 1;
+                    });
+                });
+
+                // Kích nổ phản hồi khi Drone kết thúc vòng đời (User đóng tab hoặc chuyển trang)
+                window.addEventListener('visibilitychange', function() {
+                    if (document.visibilityState === 'hidden') {
+                        executeQuantumFeedback();
+                    }
+                });
+            }
+
+            // Khởi động Drone
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initializeSwarms);
+            } else {
+                initializeSwarms();
+            }
+
+            return { getDroneID: () => DRONE_UUID };
         })();
     </script>
 </body>
