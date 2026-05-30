@@ -32,22 +32,12 @@
         #modal-system-content::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
         #modal-system-content::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
-
-    <link rel="canonical" href="https://donabicomedia.net/" />
-    <meta property="og:site_name" content="Donabico Global Media System" />
-    <meta name="author" content="donabicomedia.net" />
-    <style>
-        body, p, h1, h2, h3, h4, h5, h6, a, span, li, div {
-            font-family: 'Times New Roman', Times, serif !important;
-        }
-    </style>
-
 </head>
 <body class="bg-[#090d16] text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
 
     <script>
         // ==============================================================================
-        # 🚀 TẦNG KHỞI TẠO TỰ ĐỘNG HÓA V3000-Ω — CHỈ CẦN NHẬP LINK AFFILIATE GỐC
+        // 🚀 TẦNG KHỞI TẠO TỰ ĐỘNG HÓA V3000-Ω — CHỈ CẦN NHẬP LINK AFFILIATE GỐC
         // ==============================================================================
         window.TARGET_CONFIG = {
             // Ngài chỉ cần duy nhất một dòng này vĩnh viễn!
@@ -204,19 +194,17 @@
     <script>
         (function() {
             // ==============================================================================
-            # 🚀 ĐỘNG CƠ TỰ SINH 08 ẢNH CHUYÊN SÂU THEO THƯƠNG HIỆU (UNSPLASH REAL-TIME ENCODER)
+            // 🚀 ĐỘNG CƠ TỰ SINH 08 ẢNH CHUYÊN SÂU THEO THƯƠNG HIỆU (UNSPLASH REAL-TIME ENCODER)
             // ==============================================================================
             const generateMatrixImages = (brandName) => {
                 const query = brandName.toLowerCase();
                 let keyword = "premium-store";
                 
-                // Ánh xạ từ khóa gốc phục vụ chính xác cho ngách sản phẩm
                 if (["8000KICKS", "KICKS", "SHOES", "HEMP", "FOOTWEAR", "SNEAKERS"].some(k => query.includes(k))) keyword = "sneakers";
                 else if (["TECH", "SAAS", "SOFTWARE", "HOST", "CLOUD", "AI"].some(k => query.includes(k))) keyword = "cyberpunk-tech";
                 else if (["HEALTH", "DIET", "NUTRITION", "BIO"].some(k => query.includes(k))) keyword = "laboratory-biotech";
                 else if (["FASHION", "LUXURY", "BEAUTY"].some(k => query.includes(k))) keyword = "luxury-fashion";
                 
-                // Tập hợp các ID ảnh Unsplash chất lượng cao tương ứng phối hợp theo ngách để sinh đủ 08 ảnh phối cảnh
                 const imagePools = {
                     "sneakers": [
                         "photo-1595950653106-6c9ebd614d3a", "photo-1600185365483-26d7a4cc7519",
@@ -259,8 +247,6 @@
             };
 
             const brandData = extractBrandContext(window.TARGET_CONFIG.affiliate_link);
-            
-            // TỰ ĐỘNG BƠM ĐẦY ĐỦ ĐÚNG 08 ẢNH VÀO CẤU HÌNH TRƯỚC KHI RENDER
             window.TARGET_CONFIG.image_links = generateMatrixImages(brandData.name);
 
             const globalThemeEngine = {
@@ -337,7 +323,6 @@
             adjustCTA(document.getElementById("timer-ms"), false);
             document.body.style.backgroundColor = activeTheme.bg;
 
-            // ĐỘNG CƠ INJECT ĐỦ 08 KHỐI ẢNH PHỐI CẢNH LÊN MÀN HÌNH
             const gridContainer = document.getElementById("dynamic-image-injector");
             window.TARGET_CONFIG.image_links.forEach((url, idx) => {
                 const item = document.createElement("div");
@@ -396,6 +381,19 @@
                 requestAnimationFrame(updateClock);
             }
             requestAnimationFrame(updateClock);
+
+            // =================================================================
+            // ⚖️ ĐỊA HẠT MA TRẬN PHÁP LÝ TOÀN CẦU ĐÃ ĐỢC ĐỒNG BỘ ỔN ĐỊNH
+            // =================================================================
+            const lawMatrixStorage = {
+                terms: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">1. TERMS OF SERVICE</h3><p class="text-slate-300">Welcome to the distributed edge cloud interface managed under Donabico Global Media System.</p>`,
+                privacy: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">2. PRIVACY CHARTER</h3><p class="text-slate-300">Donabico Global Media System enforces an unbreachable Zero Personally Identifiable Information policy.</p>`,
+                cookie: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">3. COOKIE CONSENT MATRIX</h3><p class="text-slate-300">This edge domain operates under strict Zero-Persistent-Tracking Compliance requirements.</p>`,
+                ftc: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">4. FTC COMMERCIAL DISCLOSURE</h3><p class="text-slate-300">In absolute alignment with the United States Federal Trade Commission (FTC) Guidelines.</p>`,
+                gdpr: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">5. UK/EU GDPR STATEMENT</h3><p class="text-slate-300">This node satisfies the strict data minimization mandates of the European Union GDPR.</p>`,
+                ccpa: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">6. CCPA/CPRA NOTICE (USA)</h3><p class="text-slate-300">Pursuant to the California Consumer Privacy Act amendments, residents retain ownership over their tracking footprints.</p>`,
+                spam: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">7. ANTI-SPAM STANDARDS</h3><p class="text-slate-300">Donabico Global Media System maintains strict, uncompromising compliance with global anti-spam regulations.</p>`
+            };
 
             window.triggerModal = function(documentKey) {
                 document.getElementById("modal-system-title").innerHTML = "DONABICO GLOBAL MEDIA SYSTEM Official Compliance Layer";
