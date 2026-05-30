@@ -450,18 +450,32 @@
             };
             window.closeModal = function() { document.getElementById("legal-system-modal").classList.add("hidden"); };
 
-            const clearUrlHashMatrix = () => {
-                if (window.location.hash) {
-                    window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+            // ==============================================================================
+            // 🛡️ BỘ LỌC TÀNG HÌNH: TRIỆT TIÊU DẤU "#" KẾT TỦA (ZERO-HASH FOOTPRINT)
+            // ==============================================================================
+            const enforceZeroHashFootprint = () => {
+                if (window.location.hash || window.location.href.indexOf('#') > -1) {
+                    window.history.replaceState(null, document.title, window.location.pathname + window.location.search);
                 }
             };
-            
-            clearUrlHashMatrix();
-            window.addEventListener('DOMContentLoaded', clearUrlHashMatrix);
-            window.addEventListener('load', clearUrlHashMatrix);
+
+            enforceZeroHashFootprint();
+            window.addEventListener('DOMContentLoaded', enforceZeroHashFootprint);
+            window.addEventListener('load', enforceZeroHashFootprint);
+
             window.addEventListener('hashchange', function(e) {
                 e.preventDefault();
-                clearUrlHashMatrix();
+                enforceZeroHashFootprint();
+            });
+
+            document.addEventListener('click', function(e) {
+                let target = e.target.closest('a');
+                if (target) {
+                    let href = target.getAttribute('href');
+                    if (href === '#' || href === '#!' || href === '') {
+                        e.preventDefault(); 
+                    }
+                }
             });
 
             document.body.className = "system-ready";
