@@ -13,7 +13,7 @@
     <meta property="og:title" content="Official Verified Store Node | Premium Global Deals">
     <meta property="og:description" content="Access the official verified allocation gateway. Secure tracking protocols fully compliant with international trade standards.">
     <meta property="og:url" content="https://donabico-global-media.github.io/shop/8000kicks.html">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="800">
     
@@ -40,10 +40,7 @@
         // 🚀 TẦNG KHỞI TẠO TỰ ĐỘNG HÓA V3000-Ω — CHỈ CẦN NHẬP LINK AFFILIATE GỐC
         // ==============================================================================
         window.TARGET_CONFIG = {
-            // Ngài chỉ cần duy nhất một dòng này vĩnh viễn!
             affiliate_link: "https://8000kicks.sjv.io/donabico_global_media",
-            
-            // Hệ thống tự động biên dịch, ngài không cần nhập links mảng này nữa!
             image_links: [] 
         };
     </script>
@@ -194,23 +191,19 @@
     <script>
         (function() {
             // ==============================================================================
-            // 🚀 ĐỘNG CƠ TỰ SINH 08 ẢNH CHUYÊN SÂU THEO THƯƠNG HIỆU (UNSPLASH REAL-TIME ENCODER)
+            // 🚀 ĐỘNG CƠ KHÓA TẬP ẢNH GIÀY VẢI GAI DẦU ECO-CONSCIOUS (HEMP SNEAKERS IMAGERY POOL)
             // ==============================================================================
             const generateMatrixImages = (brandName) => {
                 const query = brandName.toLowerCase();
-                let keyword = "premium-store";
+                let keyword = "hemp-shoes";
                 
-                if (["8000KICKS", "KICKS", "SHOES", "HEMP", "FOOTWEAR", "SNEAKERS"].some(k => query.includes(k))) keyword = "sneakers";
-                else if (["TECH", "SAAS", "SOFTWARE", "HOST", "CLOUD", "AI"].some(k => query.includes(k))) keyword = "cyberpunk-tech";
-                else if (["HEALTH", "DIET", "NUTRITION", "BIO"].some(k => query.includes(k))) keyword = "laboratory-biotech";
-                else if (["FASHION", "LUXURY", "BEAUTY"].some(k => query.includes(k))) keyword = "luxury-fashion";
-                
+                // Tập hợp chính xác 08 ID ảnh Unsplash chuyên sâu ngách Giày vải gai dầu / Eco Canvas bền vững
                 const imagePools = {
-                    "sneakers": [
-                        "photo-1595950653106-6c9ebd614d3a", "photo-1600185365483-26d7a4cc7519",
-                        "photo-1549298916-b41d501d3772", "photo-1606107557195-0e29a4b5b4aa",
-                        "photo-1542291026-7eec264c27ff", "photo-1608231387042-66d1773070a5",
-                        "photo-1539185441755-769473a23570", "photo-1514989940723-e8e5163ccbe8"
+                    "hemp-shoes": [
+                        "photo-1608231387042-66d1773070a5", "photo-1543163521-1bf539c55dd2",
+                        "photo-1525966222134-fcfa99b8ae77", "photo-1560343090-f0409e92791a",
+                        "photo-1515347619252-60a4bf4fff4f", "photo-1505740420928-5e560c06d30e",
+                        "photo-1511556532299-8f662fc26c06", "photo-1607522370275-f14206abe5d3"
                     ],
                     "cyberpunk-tech": [
                         "photo-1518770660439-4636190af475", "photo-1526374965328-7f61d4dc18c5",
@@ -226,7 +219,12 @@
                     ]
                 };
 
-                const pool = imagePools[keyword] || imagePools["sneakers"];
+                // Ép luồng nhận diện ngách 8000Kicks đổ về kho ảnh giày gai dầu bền vững
+                if (["8000KICKS", "KICKS", "SHOES", "HEMP", "FOOTWEAR", "SNEAKERS"].some(k => query.includes(k))) keyword = "hemp-shoes";
+                else if (["TECH", "SAAS", "SOFTWARE", "HOST", "CLOUD", "AI"].some(k => query.includes(k))) keyword = "cyberpunk-tech";
+                else if (["FASHION", "LUXURY", "BEAUTY"].some(k => query.includes(k))) keyword = "luxury-fashion";
+
+                const pool = imagePools[keyword] || imagePools["hemp-shoes"];
                 return pool.map(id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`);
             };
 
@@ -382,9 +380,6 @@
             }
             requestAnimationFrame(updateClock);
 
-            // =================================================================
-            // ⚖️ ĐỊA HẠT MA TRẬN PHÁP LÝ TOÀN CẦU ĐÃ ĐỢC ĐỒNG BỘ ỔN ĐỊNH
-            // =================================================================
             const lawMatrixStorage = {
                 terms: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">1. TERMS OF SERVICE</h3><p class="text-slate-300">Welcome to the distributed edge cloud interface managed under Donabico Global Media System.</p>`,
                 privacy: `<h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">2. PRIVACY CHARTER</h3><p class="text-slate-300">Donabico Global Media System enforces an unbreachable Zero Personally Identifiable Information policy.</p>`,
@@ -403,6 +398,18 @@
                 document.getElementById("legal-system-modal").classList.remove("hidden");
             };
             window.closeModal = function() { document.getElementById("legal-system-modal").classList.add("hidden"); };
+
+            // ==============================================================================
+            // 🛡️ MÀNG LỌC TỰ ĐỘNG KHỬ DẤU # TRÊN URL KHI BẤM CTA ĐỂ GIỮ LINK SẠCH TUYỆT ĐỐI
+            // ==============================================================================
+            if (window.location.hash) {
+                window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+            }
+            window.addEventListener('hashchange', function(e) {
+                e.preventDefault();
+                window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+            });
+
             document.body.className = "system-ready";
         })();
     </script>
