@@ -28,10 +28,15 @@
 </head>
 <body class="bg-[#090d16] text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
 
-    <script>
+   <script>
         window.TARGET_CONFIG = {
+            // ID thương hiệu: Phải đặt duy nhất cho từng thư mục (ví dụ: "8000KICKS", "NIKE", "ADIDAS")
             brand_id: "8000KICKS", 
+
+            // Link Affiliate tương ứng với brand_id đó
             affiliate_link: "https://8000kicks.sjv.io/donabico_global_media",
+
+            // Link ảnh tương ứng
             image_links: [
                 "https://i.postimg.cc/0yh4WRJc/8000kicks-001.jpg",
                 "https://i.postimg.cc/fR1P2n0g/8000kicks-002.jpg",
@@ -40,6 +45,7 @@
             ]
         };
     </script>
+
     <header class="border-b border-slate-800/40 bg-[#090d15]/90 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -200,7 +206,7 @@
             }
 
             const getBrandContext = (brandId) => {
-                const id = brandId.toUpperCase();
+                const id = brandId.toUpperCase().strip ? brandId.toUpperCase().strip() : brandId.toUpperCase();
                 let matrix = "GENERIC";
                 if (["8000KICKS", "SHOES", "HEMP", "FOOTWEAR"].some(k => id.includes(k))) matrix = "ECO_FOOTWEAR";
                 else if (["AMAZON", "SHOPEE", "ALIEXPRESS", "STORE", "SHOP", "MARKET"].some(k => id.includes(k))) matrix = "COMMERCE";
@@ -212,31 +218,17 @@
             };
 
             const brandData = getBrandContext(window.TARGET_CONFIG.brand_id);
-            
             const globalThemeEngine = {
-                "ECO_FOOTWEAR":  { bg: "#080c09", primary: "#10b981", hex: "#10b981", sector: "SUSTAINABLE FOOTWEAR MATRICES", icon: "🌿" },
-                "COMMERCE":      { bg: "#0b0b12", primary: "#0ea5e9", hex: "#0ea5e9", sector: "GLOBAL DISTRIBUTION CHANNELS", icon: "🛒" },
-                "TECH_SAAS":     { bg: "#070a14", primary: "#3b82f6", hex: "#3b82f6", sector: "ALGORITHMIC INFRASTRUCTURE", icon: "💻" },
-                "FINANCIAL":     { bg: "#0b0c0d", primary: "#f59e0b", hex: "#f59e0b", sector: "DIGITAL PROTOCOLS & CRYPTO", icon: "🪙" },
-                "BIO_HEALTH":    { bg: "#0e0d0a", primary: "#84cc16", hex: "#84cc16", sector: "ECO-ACTIVE HEALTH CONDUITS", icon: "🧬" },
-                "LUXURY_DESIGN": { bg: "#0f0812", primary: "#d946ef", hex: "#d946ef", sector: "HIGH-END TEXTILE SHOWCASES", icon: "✨" },
-                "GENERIC":       { bg: "#0c0f17", primary: "#f59e0b", hex: "#f59e0b", sector: "OFFICIAL CONVERSION GATEWAY", icon: "★" }
+                "ECO_FOOTWEAR": { bg: "#080c09", primary: "#10b981", hex: "#10b981", sector: "SUSTAINABLE FOOTWEAR MATRICES", icon: "🌿" },
+                "COMMERCE":     { bg: "#0b0b12", primary: "#0ea5e9", hex: "#0ea5e9", sector: "GLOBAL DISTRIBUTION CHANNELS", icon: "🛒" },
+                "TECH_SAAS":    { bg: "#070a14", primary: "#3b82f6", hex: "#3b82f6", sector: "ALGORITHMIC INFRASTRUCTURE", icon: "💻" },
+                "FINANCIAL":    { bg: "#0b0c0d", primary: "#f59e0b", hex: "#f59e0b", sector: "DIGITAL PROTOCOLS & CRYPTO", icon: "🪙" },
+                "BIO_HEALTH":   { bg: "#0e0d0a", primary: "#84cc16", hex: "#84cc16", sector: "ECO-ACTIVE HEALTH CONDUITS", icon: "🧬" },
+                "LUXURY_DESIGN":{ bg: "#0f0812", primary: "#d946ef", hex: "#d946ef", sector: "HIGH-END TEXTILE SHOWCASES", icon: "✨" },
+                "GENERIC":      { bg: "#0c0f17", primary: "#f59e0b", hex: "#f59e0b", sector: "OFFICIAL CONVERSION GATEWAY", icon: "★" }
             };
 
-            // Mở rộng đủ 24 luồng Swarms cho Dark Theme
-            const themes = Array.from({length: 24}, (_, i) => {
-                const keys = Object.keys(globalThemeEngine);
-                const base = globalThemeEngine[keys[i % keys.length]];
-                return {
-                    bg: `hsl(${i * 15}, 14%, 6%)`,
-                    hex: base.hex,
-                    sector: i === 0 ? base.sector : `DYNAMIC_NODE_V3000_Ω_${i+1}`,
-                    icon: ["★","⚡","🧿","💠","💎","🛡️","🌀","🐝","🧱","📜","⚙️","📥","📤","🔋","🛸","🛰️","🌍","🔗","💾","🔑","🧧","🧬","🧪","🎯"][i]
-                };
-            });
-
             const activeTheme = globalThemeEngine[brandData.matrix] || globalThemeEngine["GENERIC"];
-            
             const copyRepository = {
                 "ECO_FOOTWEAR": {
                     headline: `The New Standard in Sustainable <span style="color:${activeTheme.hex};">Waterproof Footwear</span> Innovation`,
@@ -316,7 +308,7 @@
                 gridContainer.appendChild(item);
             });
 
-            // GIAO THỨC ĐIỀU HƯỚNG TÀNG HÌNH & CHỐNG BOT QUÉT
+            // GIẢI PHÁP TIÊM LINK TẮC KÈ HOA VÀ KHÓA CHẶT URL #
             document.querySelectorAll(".affiliate-gate-trigger").forEach(anchor => {
                 const injectRealLink = function() {
                     if (/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) return;
@@ -369,7 +361,7 @@
             requestAnimationFrame(updateClock);
 
             // =================================================================
-            // MA TRẬN PHÁP LÝ TOÀN CẦU ĐÃ ĐỢC KIỆN TOÀN MỞ RỘNG
+            // 4 & 7. MA TRẬN PHÁP LÝ TOÀN CẦU ĐÃ ĐỢC KIỆN TOÀN MỞ RỘNG (100% CẢI THIỆN)
             // =================================================================
             const lawMatrixStorage = {
                 terms: `
@@ -380,10 +372,10 @@
                     <p>Users are authorized to interface with this page solely via standard residential client terminals. Automated scraping routines, indexing spiders, telemetry extraction bots, or aggressive programmatic parsing queries are strictly prohibited. Unauthorized data harvesting will trigger an immediate IP network edge isolation protocol via our Firecracker Sandboxing architecture.</p>
                     
                     <h4 class="text-white font-bold text-sm uppercase font-mono mt-4">1.2 Intellectual Property & Fair Reference Matrix</h4>
-                    <p>All corporate trademarks, including the primary identifiers for <strong>${brandData.name}</strong>, along with correlated assets, visual blueprints, and industrial design patterns, remain the exclusive property of their sovereign brand owners. This routing gate functions strictly as an independent third-party performance distribution node.</p>
+                    <p>All corporate trademarks, including the primary identifiers for <strong>\${brandData.name}</strong>, along with correlated assets, visual blueprints, and industrial design patterns, remain the exclusive property of their sovereign brand owners. This routing gate functions strictly as an independent third-party performance distribution node.</p>
                     
                     <h4 class="text-white font-bold text-sm uppercase font-mono mt-4">1.3 Sovereign Indemnification & Destination Liability</h4>
-                    <p>Donabico Global Media System acts exclusively as a zero-latency distribution node. We do not manufacture, store, ship, or process transactions for physical or digital products. All commercial checkouts, pricing dynamics, return structures, and delivery guarantees are bound strictly to the sovereign destination servers of <strong>${brandData.name}</strong>. You agree to hold this routing network free from any operational liability or billing discrepancy arising at external merchant checkout interfaces.</p>`,
+                    <p>Donabico Global Media System acts exclusively as a zero-latency distribution node. We do not manufacture, store, ship, or process transactions for physical or digital products. All commercial checkouts, pricing dynamics, return structures, and delivery guarantees are bound strictly to the sovereign destination servers of <strong>\${brandData.name}</strong>. You agree to hold this routing network free from any operational liability or billing discrepancy arising at external merchant checkout interfaces.</p>`,
                 
                 privacy: `
                     <h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">2. PRIVACY CHARTER & DATA STRUCTURAL ZERO-ING</h3>
@@ -410,7 +402,7 @@
                     <p class="text-slate-300 font-medium">In absolute alignment with the United States Federal Trade Commission (FTC) Guidelines (16 CFR Part 255), the Canadian Competition Bureau, the United Kingdom Advertising Standards Authority (ASA), and consumer protection decrees across global networks, we present our commercial mandate transparently.</p>
                     
                     <h4 class="text-white font-bold text-sm uppercase font-mono mt-4">4.1 Economic Affiliation and Monetization Framework</h4>
-                    <p>This page operates as a high-density performance distribution node. Every outbound action trigger (CTA button) maps to a monetized, cryptographically protected tracking gateway pointing to <strong>${brandData.name}</strong>. Clicking these elements will establish an active referral session tracking state.</p>
+                    <p>This page operates as a high-density performance distribution node. Every outbound action trigger (CTA button) maps to a monetized, cryptographically protected tracking gateway pointing to <strong>\${brandData.name}</strong>. Clicking these elements will establish an active referral session tracking state.</p>
                     
                     <h4 class="text-white font-bold text-sm uppercase font-mono mt-4">4.2 Financial Commission Structures</h4>
                     <p>Donabico Global Media System receives direct financial compensation or percentage-based conversion rewards from the partner merchant upon qualified acquisitions finalized within the destination store. This promotional compensation system does not inject any hidden pricing overhead or cost inflation for the end consumer. Prices match or drop below standard retail baselines via localized brand discount tokens.</p>`,
@@ -433,7 +425,7 @@
                     <p>Donabico Global Media System states definitively and permanently: <strong>We DO NOT sell, rent, disclose, or share your personal information, web browsing history, search telemetry, or consumer characteristics with data brokers or marketing aggregators.</strong> Our data ingestion layer is a closed loop.</p>
                     
                     <h4 class="text-white font-bold text-sm uppercase font-mono mt-4">6.2 Right to Opt-Out & Right to Know</h4>
-                    <p>Because our system architecture bypasses tracking data capture entirely, there is no technical foundation to host a "Do Not Sell My Info" link. Outbound transactions to <strong>${brandData.name}</strong> remain strictly manual, intentional, and initialized exclusively by the consumer.</p>`,
+                    <p>Because our system architecture bypasses tracking data capture entirely, there is no technical foundation to host a "Do Not Sell My Info" link. Outbound transactions to <strong>\${brandData.name}</strong> remain strictly manual, intentional, and initialized exclusively by the consumer.</p>`,
                 
                 spam: `
                     <h3 class="text-white font-bold text-xl border-b border-slate-700 pb-3 font-mono tracking-tight">7. ANTI-SPAM OPERATIONAL STANDARDS & COMPLIANCE RULES</h3>
@@ -447,7 +439,9 @@
             };
 
             window.triggerModal = function(documentKey) {
+                // Sửa tiêu đề Modal chuẩn thương hiệu DONABICO GLOBAL MEDIA SYSTEM
                 document.getElementById("modal-system-title").innerHTML = "DONABICO GLOBAL MEDIA SYSTEM Official Compliance Layer";
+                // Ép chuỗi eval hoặc thay thế biến để bóc tách text động
                 let customText = lawMatrixStorage[documentKey] || `<h3>Document Ingestion Error</h3>`;
                 customText = customText.replace(/\${brandData.name}/g, brandData.name);
                 
