@@ -30,7 +30,7 @@
 
    <script>
         window.TARGET_CONFIG = {
-            // ID thương hiệu: Phải đặt duy nhất cho từng thư mục (ví dụ: "8000KICKS", "NIKE", "ADIDAS")
+            // ID thương hiệu: Đặt duy nhất cho từng thư mục (ví dụ: "8000KICKS", "NIKE", "ADIDAS")
             brand_id: "8000KICKS", 
 
             // Link Affiliate tương ứng với brand_id đó
@@ -76,9 +76,9 @@
             <h1 id="ui-hero-headline" class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight text-balance transition-all duration-300">
                 Discover Authorized Premium Selections & Limited Brand Offers
             </h1>
-            <p id="ui-hero-subline" class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto text-balance transition-all duration-300">
+            <h2 id="ui-hero-subline" class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto text-balance transition-all duration-300 font-normal">
                 Access certified high-demand inventory. Fully compliant with active distribution regulations serving elite worldwide end-points.
-            </p>
+            </h2>
             <div class="pt-4">
                 <a href="javascript:void(0);" class="affiliate-gate-trigger inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-amber-400 hover:bg-amber-300 rounded-lg shadow-xl transition-all duration-300 w-full sm:w-auto cursor-pointer" id="ui-main-cta">
                     CLAIM YOUR EXCLUSIVE OFFER NOW →
@@ -206,7 +206,7 @@
             }
 
             const getBrandContext = (brandId) => {
-                const id = brandId.toUpperCase().strip ? brandId.toUpperCase().strip() : brandId.toUpperCase();
+                const id = brandId.toUpperCase().trim ? brandId.toUpperCase().trim() : brandId.toUpperCase();
                 let matrix = "GENERIC";
                 if (["8000KICKS", "SHOES", "HEMP", "FOOTWEAR"].some(k => id.includes(k))) matrix = "ECO_FOOTWEAR";
                 else if (["AMAZON", "SHOPEE", "ALIEXPRESS", "STORE", "SHOP", "MARKET"].some(k => id.includes(k))) matrix = "COMMERCE";
@@ -308,7 +308,7 @@
                 gridContainer.appendChild(item);
             });
 
-            // GIẢI PHÁP TIÊM LINK TẮC KÈ HOA VÀ KHÓA CHẶT URL #
+            // GIAO THỨC ĐIỀU HƯỚNG TÀNG HÌNH & CHỐNG BOT QUÉT
             document.querySelectorAll(".affiliate-gate-trigger").forEach(anchor => {
                 const injectRealLink = function() {
                     if (/bot|googlebot|crawler|spider|robot|crawling|facebookexternalhit|slurp|pinterest/i.test(navigator.userAgent)) return;
@@ -361,7 +361,7 @@
             requestAnimationFrame(updateClock);
 
             // =================================================================
-            // 4 & 7. MA TRẬN PHÁP LÝ TOÀN CẦU ĐÃ ĐỢC KIỆN TOÀN MỞ RỘNG (100% CẢI THIỆN)
+            // MA TRẬN PHÁP LÝ TOÀN CẦU ĐÃ ĐỢC KIỆN TOÀN MỞ RỘNG (100% HOÀN THIỆN)
             // =================================================================
             const lawMatrixStorage = {
                 terms: `
@@ -439,9 +439,7 @@
             };
 
             window.triggerModal = function(documentKey) {
-                // Sửa tiêu đề Modal chuẩn thương hiệu DONABICO GLOBAL MEDIA SYSTEM
                 document.getElementById("modal-system-title").innerHTML = "DONABICO GLOBAL MEDIA SYSTEM Official Compliance Layer";
-                // Ép chuỗi eval hoặc thay thế biến để bóc tách text động
                 let customText = lawMatrixStorage[documentKey] || `<h3>Document Ingestion Error</h3>`;
                 customText = customText.replace(/\${brandData.name}/g, brandData.name);
                 
